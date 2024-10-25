@@ -5,8 +5,6 @@ const Home: NextPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-8">
       <main className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl px-8 md:px-20 space-y-8 md:space-y-0 md:space-x-12">
-        
-        {/* Text and Buttons Container */}
         <div className="flex flex-col items-start text-left space-y-6 md:w-2/3">
           <h1 className="text-5xl font-bold leading-tight">
           Evolving Your Ideas with{' '}
@@ -35,15 +33,16 @@ const Home: NextPage = () => {
         </div>
 
         {/* Logo Container */}
-        <div className="flex items-center justify-end">
-          <Image
-            src="/logo.png"
-            alt="Illustration"
-            width={500}
-            height={500}
-            className="rounded-md"
-          />
+        <div className="flex flex-col justify-end"> 
+            <Image
+                src="/rocket.avif"
+                alt="Illustration"
+                width={500}
+                height={500}
+                className="rounded-md"
+            />
         </div>
+
         
       </main>
     </div>
