@@ -1,34 +1,35 @@
 import React from 'react';
-import logo from './logo.png'; 
+import Link from 'next/link';
+
 
 const Header = () => {
   return (
     <header className="bg-white shadow-md fixed top-0 w-full z-10">
       <div className="container mx-auto flex justify-between items-center p-3">
         <div>
-          <a href="/">
+          <Link href="/">
             <img src={'/logo.png'} alt="Pentamorphs Logo" className="h-16 w-16" /> 
-          </a>
+          </Link>
         </div>
         <nav className="flex space-x-6">
-          <a 
+          <Link 
             href="#about" 
             className="text-gray-700 hover:text-indigo-600 cursor-pointer"
           >
             About
-          </a>
-          <a 
+          </Link>
+          <Link 
             href="#team" 
             className="text-gray-700 hover:text-indigo-600 cursor-pointer"
           >
             Team
-          </a>
-          <a 
+          </Link>
+          <Link 
             href="#contact" 
             className="text-gray-700 hover:text-indigo-600 cursor-pointer"
           >
             Contact
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
