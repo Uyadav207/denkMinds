@@ -37,7 +37,7 @@ const Home: NextPage = () => {
             <Image
                 src="/rocket.gif"
                 alt="logo_rocket"
-                priority
+                priority={true}
                 width={600}
                 height={600}
                 className="rounded-md"
