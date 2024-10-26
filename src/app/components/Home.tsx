@@ -36,14 +36,13 @@ const Home: NextPage = () => {
         <div className="flex flex-col justify-end"> 
             <Image
                 src="/rocket.gif"
-                alt="Illustration"
+                alt="logo_rocket"
+                priority
                 width={600}
                 height={600}
                 className="rounded-md"
             />
         </div>
-
-        
       </main>
     </div>
   )
