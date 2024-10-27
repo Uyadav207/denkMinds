@@ -23,15 +23,13 @@ const Header = () => {
       className={`transition-all duration-700 bg-white ${isScrolled ? 'shadow-md fixed top-0' : ''} w-full z-10 `}
     >
       <div className="container mx-auto flex justify-between items-center p-3">
-        <div>
-          <Link href="/">
-            <img
-              src={'/logo2.png'}
-              alt="Pentamorphs Logo"
-              className="h-16 w-16"
-            />
-          </Link>
-        </div>
+      <div className="flex items-center space-x-2">
+  <Link href="/">
+    <img src={'/logo.png'} alt="Pentamorphs Logo" className="h-16 w-16" /> 
+  </Link>
+  <p className="font-bold text-xl">PentaMorphs</p>
+</div>
+
         <nav className="flex space-x-6">
           <Link
             href="#about"
