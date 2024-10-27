@@ -1,31 +1,52 @@
-import React from 'react';
-import Link from 'next/link';
+'use client'
 
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 90) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   return (
-    <header className="bg-white shadow-md fixed top-0 w-full z-10">
+    <header
+      className={`transition-all duration-700 bg-white ${isScrolled ? 'shadow-md fixed top-0' : ''} w-full z-10 `}
+    >
       <div className="container mx-auto flex justify-between items-center p-3">
         <div>
           <Link href="/">
-            <img src={'/logo2.png'} alt="Pentamorphs Logo" className="h-16 w-16" /> 
+            <img
+              src={'/logo2.png'}
+              alt="Pentamorphs Logo"
+              className="h-16 w-16"
+            />
           </Link>
         </div>
         <nav className="flex space-x-6">
-          <Link 
-            href="#about" 
+          <Link
+            href="#about"
             className="text-gray-700 hover:text-indigo-600 cursor-pointer"
           >
             About
           </Link>
-          <Link 
-            href="#team" 
+          <Link
+            href="#team"
             className="text-gray-700 hover:text-indigo-600 cursor-pointer"
           >
             Team
           </Link>
-          <Link 
-            href="#contact" 
+          <Link
+            href="#contact"
             className="text-gray-700 hover:text-indigo-600 cursor-pointer"
           >
             Contact
@@ -33,7 +54,7 @@ const Header = () => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
