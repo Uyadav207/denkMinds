@@ -9,7 +9,7 @@ interface TeamCardProps {
 
 const TeamCard: React.FC<TeamCardProps> = ({ name, role, image }) => (
   <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-<Image
+<img
       src={image}
       alt={`${name}'s picture`}
       width={96}

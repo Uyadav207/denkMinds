@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Home from './components/Home.tsx'
 import Team from './components/Team.tsx'
+import ContactForm from './components/ContactForm.tsx'
 
 export default function Dashboard() {
   return (
@@ -9,6 +10,7 @@ export default function Dashboard() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-cemter">
       <Home />
       <Team />
+        <ContactForm />
       </main>
     </div>
   )
