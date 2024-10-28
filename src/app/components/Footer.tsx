@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Logo */}
         <div className="flex mt-4 md:mt-0">
         <Link href="/">
-            <Image
+            <img
               src={'/logo.png'}
               alt="Pentamorphs Logo"
               className="h-16 w-16"
@@ -64,7 +64,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="bg-purple-700 w-full flex py-4 flex-col justify-center items-center">
-        <p className='text-lg'>&copy; {new Date().getFullYear()} PentaMorphs. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} PentaMorphs. All rights reserved.</p>
         <p>DISCLAIMER: This website does not belong to a real company. It is a Planspiel Web Engineering project.</p>
       </div>
     </footer>
