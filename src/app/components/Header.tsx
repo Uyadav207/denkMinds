@@ -1,30 +1,44 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react'
-import Link from "next/link"
-import Image from 'next/image'
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 90) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
-    }
+      // Update scroll state
+      setIsScrolled(window.scrollY > 90);
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      // Determine which section is active based on scroll position
+      const sections = ['home', 'team', 'contactform'];
+      let currentSection = '';
+
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+            currentSection = section;
+          }
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header
-      className={`transition-all duration-700 bg-white ${
-        isScrolled ? 'shadow-md fixed top-0' : ''
-      } w-full z-10 `}
+      className={`transition-all duration-700 bg-white fixed top-0 left-0 w-full z-50 ${
+        isScrolled ? 'shadow-md' : ''
+      }`}
     >
       <div className="container mx-auto flex justify-between items-center p-3">
         <div className="flex items-center space-x-2">
@@ -42,27 +56,33 @@ const Header = () => {
 
         <nav className="flex space-x-6">
           <Link
-            href="#about"
-            className="text-gray-700 hover:text-indigo-600 cursor-pointer"
+            href="#home"
+            className={`cursor-pointer ${
+              activeSection === 'home' ? 'text-violet-600 font-bold' : 'text-gray-700'
+            } hover:text-green-600`}
           >
-            About
+            Home
           </Link>
           <Link
             href="#team"
-            className="text-gray-700 hover:text-indigo-600 cursor-pointer"
+            className={`cursor-pointer ${
+              activeSection === 'team' ? 'text-violet-600 font-bold' : 'text-gray-700'
+            } hover:text-green-600`}
           >
             Team
           </Link>
-          <Link 
-            href="#contactform" 
-            className="text-gray-700 hover:text-indigo-600 cursor-pointer"
+          <Link
+            href="#contactform"
+            className={`cursor-pointer ${
+              activeSection === 'contactform' ? 'text-violet-600 font-bold' : 'text-gray-700'
+            } hover:text-green-600`}
           >
             Contact
           </Link>
         </nav>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
