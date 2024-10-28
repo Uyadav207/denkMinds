@@ -14,6 +14,8 @@ const Team = () => (
           name={member.name}
           role={member.role}
           image={member.image}
+          linkedinUrl={member.linkedinUrl}
+          githubUrl={member.githubUrl}
         />
       ))}
     </div>
