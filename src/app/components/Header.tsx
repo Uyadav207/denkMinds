@@ -53,8 +53,8 @@ const Header = () => {
           >
             Team
           </Link>
-          <Link
-            href="#contact"
+          <Link 
+            href="#contactform" 
             className="text-gray-700 hover:text-indigo-600 cursor-pointer"
           >
             Contact
