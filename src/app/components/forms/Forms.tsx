@@ -1,5 +1,3 @@
-// src/app/components/forms/Forms.tsx
-
 'use client';
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -10,7 +8,7 @@ const validationSchema = Yup.object({
   name: Yup.string().min(2, 'Name must be at least 2 characters').required('Name is required'),
   comments: Yup.string().min(5, 'Comments must be at least 5 characters').required('Comments are required'),
   email: Yup.string().email('Invalid email format').required('Email is required'),
-  phone: Yup.string().min(10, 'Phone number must be at least 10 characters').required('Phone number is required'),
+  phone: Yup.string().matches(/^\d+$/, 'Phone number must only contain digits').min(10, 'Phone number must be at least 10 characters').required('Phone number is required'),
   company: Yup.string().min(4, 'Company name must be at least 4 characters').required('Company name is required'),
 });
 
@@ -32,11 +30,33 @@ const Forms: React.FC = () => {
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (values: FormValues, { resetForm }: { resetForm: () => void }) => {
-    console.log('Form values:', values); 
-    setIsModalOpen(true); 
-    resetForm();
+    try {
+      const response = await fetch('/api/sendmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      console.log('Email sent successfully');
+      setIsSuccess(true);
+      setIsModalOpen(true);
+      resetForm();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setIsSuccess(false);
+      setErrorMessage('There was an error sending your message. Please try again.');
+      setIsModalOpen(true);
+    }
   };
 
   const handleCloseModal = () => {
@@ -128,7 +148,12 @@ const Forms: React.FC = () => {
         )}
       </Formik>
 
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <Modal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        isSuccess={isSuccess} 
+        message={errorMessage} 
+      />
     </div>
   );
 };
