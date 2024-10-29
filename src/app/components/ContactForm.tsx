@@ -5,7 +5,7 @@ const ContactForm = () => {
   return (
     <section id="contactform" className="flex min-h-screen">
       <div className="w-2/5 bg-violet-700 p-10 text-white flex flex-col justify-center">
-        <h2 className="text-4xl font-bold text-white text-center mb-8">
+        <h2 className="text-4xl font-bold text-white text-center mb-8 animate-pulse">
           Say Hello!
         </h2>
         <div className="flex justify-center">
@@ -17,7 +17,7 @@ const ContactForm = () => {
           Stop by our <span className="text-violet-400">studio</span> and share
           your thoughts on your project.
         </h2>
-        <p className="text-lg text-2xl mb-8 p-4">
+        <p className="text-lg mb-8 p-4">
           We always have great coffee....
         </p>
       </div>
