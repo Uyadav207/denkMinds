@@ -1,6 +1,6 @@
-import React from "react"
-import TeamCard from "./cards/TeamCard"
-import { teamMembers } from "../../data/teamData"
+import React from 'react'
+import TeamCard from './cards/TeamCard'
+import { teamMembers } from '../../data/teamData'
 
 const Team = () => (
   <section
@@ -11,7 +11,7 @@ const Team = () => (
       <h2 className="text-4xl font-bold text-violet-600 text-center mb-10">
         Meet Our Team
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
         {teamMembers.map((member, index) => (
           <TeamCard
             key={index}
@@ -20,6 +20,7 @@ const Team = () => (
             image={member.image}
             linkedinUrl={member.linkedinUrl}
             githubUrl={member.githubUrl}
+            portfolioUrl={member.portfolioUrl}
           />
         ))}
       </div>
