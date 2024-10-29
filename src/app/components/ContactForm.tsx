@@ -3,8 +3,11 @@ import Forms from "./forms/Forms"
 
 const ContactForm = () => {
   return (
-    <section id="contactform" className="flex min-h-screen">
-      <div className="w-2/5 bg-violet-700 p-10 text-white flex flex-col justify-center">
+    <section
+      id="contactform"
+      className="flex flex-col md:flex-row min-h-screen"
+    >
+      <div className="w-full md:w-2/5 bg-violet-700 p-10 text-white flex flex-col justify-center">
         <h2 className="text-4xl font-bold text-white text-center mb-8 animate-pulse">
           Say Hello!
         </h2>
@@ -12,8 +15,8 @@ const ContactForm = () => {
           <Forms />
         </div>
       </div>
-      <div className="w-3/5 bg-gray-900 p-10 text-white flex flex-col justify-center">
-        <h2 className="text-4xl font-bold  text-white mb-4">
+      <div className="w-full md:w-3/5 bg-gray-900 p-10 text-white flex flex-col justify-center">
+        <h2 className="text-4xl font-bold text-white mb-4">
           Stop by our <span className="text-violet-400">studio</span> and share
           your thoughts on your project.
         </h2>
