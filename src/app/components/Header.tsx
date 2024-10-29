@@ -1,38 +1,38 @@
-'use client';
+'use client'
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
       // Update scroll state
-      setIsScrolled(window.scrollY > 90);
+      setIsScrolled(window.scrollY > 90)
 
       // Determine which section is active based on scroll position
-      const sections = ['home', 'team', 'contactform'];
-      let currentSection = '';
+      const sections = ['home', 'mission', 'team', 'contactform']
+      let currentSection = ''
 
-      sections.forEach(section => {
-        const element = document.getElementById(section);
+      sections.forEach((section) => {
+        const element = document.getElementById(section)
         if (element) {
-          const rect = element.getBoundingClientRect();
+          const rect = element.getBoundingClientRect()
           if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-            currentSection = section;
+            currentSection = section
           }
         }
-      });
+      })
 
-      setActiveSection(currentSection);
-    };
+      setActiveSection(currentSection)
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <header
@@ -58,15 +58,29 @@ const Header = () => {
           <Link
             href="#home"
             className={`cursor-pointer ${
-              activeSection === 'home' ? 'text-violet-600 font-bold' : 'text-gray-700'
+              activeSection === 'home'
+                ? 'text-violet-600 font-bold'
+                : 'text-gray-700'
             } hover:text-green-600`}
           >
             Home
           </Link>
           <Link
+            href="#mission"
+            className={`cursor-pointer ${
+              activeSection === 'mission'
+                ? 'text-violet-600 font-bold'
+                : 'text-gray-700'
+            } hover:text-green-600`}
+          >
+            Mission
+          </Link>
+          <Link
             href="#team"
             className={`cursor-pointer ${
-              activeSection === 'team' ? 'text-violet-600 font-bold' : 'text-gray-700'
+              activeSection === 'team'
+                ? 'text-violet-600 font-bold'
+                : 'text-gray-700'
             } hover:text-green-600`}
           >
             Team
@@ -74,7 +88,9 @@ const Header = () => {
           <Link
             href="#contactform"
             className={`cursor-pointer ${
-              activeSection === 'contactform' ? 'text-violet-600 font-bold' : 'text-gray-700'
+              activeSection === 'contactform'
+                ? 'text-violet-600 font-bold'
+                : 'text-gray-700'
             } hover:text-green-600`}
           >
             Contact
@@ -82,7 +98,7 @@ const Header = () => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
