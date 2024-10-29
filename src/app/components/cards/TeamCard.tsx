@@ -11,7 +11,14 @@ interface TeamCardProps {
   portfolioUrl: string
 }
 
-const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, linkedinUrl, githubUrl,portfolioUrl }) => (
+const TeamCard: React.FC<TeamCardProps> = ({
+  name,
+  role,
+  image,
+  linkedinUrl,
+  githubUrl,
+  portfolioUrl,
+}) => (
   <div className="group flex flex-col items-center text-center space-y-4 w-48 mx-auto">
     {/* Circular Profile Image */}
     <div className="relative w-40 h-40 rounded-full overflow-hidden">
@@ -25,13 +32,28 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, linkedinUrl, git
       {/* Social Icons on Hover */}
       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full">
         <div className="flex space-x-4">
-          <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500"
+          >
             <FaLinkedin size={24} />
           </a>
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-500">
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500"
+          >
             <FaGithub size={24} />
           </a>
-          <a href={portfolioUrl} target="_blank" rel="noopener noreferrer" className="text-green-500">
+          <a
+            href={portfolioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-500"
+          >
             <FaGlobe size={24} />
           </a>
         </div>
