@@ -1,51 +1,55 @@
-import Image from "next/image";
-import React from 'react';
+import React from 'react'
 
 const Home: React.FC = () => {
   return (
-    <section id="home" className="flex items-center justify-center min-h-screen p-8">
-      <main className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl space-y-8 md:space-y-0 md:space-x-12">
-        <div className="flex flex-col items-start text-left space-y-6 md:w-2/3">
-          <h1 className="text-5xl font-bold leading-tight">
-            Evolving Your Ideas with{' '}
-            <span className="text-violet-500">Innovation</span> and{' '}
-            <span className="text-green-600">Technology</span>
+    <section
+      id="home"
+      className="relative flex items-center justify-center min-h-screen p-8 bg-gray overflow-hidden"
+    >
+      {/* Animated Shapes */}
+      <div className="absolute inset-0 z-0 shapes-container">
+        <div className="shape shape-green"></div>
+        <div className="shape shape-yellow"></div>
+        <div className="shape shape-pink"></div>
+        <div className="shape shape-blue"></div>
+        <div className="shape shape-red"></div>
+        <div className="shape shape-orange"></div>
+        <div className="shape shape-purple"></div>
+      </div>
+
+      <main className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl space-y-8 md:space-y-0 md:space-x-12">
+        <div className="flex flex-col items-start text-left space-y-4 md:w-2/3">
+          {/* Funky Title */}
+          <h1 className="text-5xl sm:text-6xl font-bold leading-snug text-gray-800 funky-title">
+            Hi! We are <span className="text-gradient">_____</span>, <br />a{' '}
+            <span className="text-gradient">young & innovative</span> Germany
+            <br />
+            based <span className="text-gradient">Startup</span>.
           </h1>
 
-          <p className="mt-2 text-lg text-gray-700 leading-relaxed">
-            Drive transformative innovation through adaptable, cutting-edge technology, empowering solutions that evolve with every challenge.
+          <p className="mt-4 text-lg text-gray-600 leading-relaxed funky-subtitle">
+          We leverage technology and sustainability to craft innovative solutions that make an impact.
           </p>
 
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mt-6">
             <a
               href="#"
-              className="px-6 py-3 bg-violet-500 text-white rounded-lg shadow hover:bg-violet-700 transition duration-400"
+              className="px-6 py-3 text-white rounded-lg shadow-lg gradient-button transition duration-300"
             >
               Learn More
             </a>
+
             <a
               href="#"
-              className="px-6 py-3 bg-transparent border border-violet-600 text-violet-600 rounded-lg shadow hover:bg-violet-600 hover:text-white transition duration-300"
+              className="px-6 py-3 rounded-lg shadow-lg gradient-outline-button transition duration-300"
             >
               Live Demo
             </a>
           </div>
         </div>
-
-        {/* Logo Container */}
-        <div className="flex flex-col justify-center">
-          <Image
-            src="/rocket.gif"
-            alt="logo_rocket"
-            priority
-            width={600}
-            height={600}
-            className="rounded-md"
-          />
-        </div>
       </main>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
