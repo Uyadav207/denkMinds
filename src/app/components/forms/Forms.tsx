@@ -2,7 +2,6 @@
 import React, { useState } from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
-import Modal from "./Modal"
 import SendRoundedIcon from "@mui/icons-material/SendRounded"
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -40,7 +39,6 @@ const Forms: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false)
 
   const handleSubmit = async (
-    
     values: FormValues,
     { resetForm }: { resetForm: () => void },
   ) => {
@@ -94,7 +92,7 @@ const Forms: React.FC = () => {
       >
         {({ isSubmitting }) => (
           <Form className="w-full flex flex-col">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { label: "Full Name", name: "name", type: "text" },
                 { label: "Email", name: "email", type: "email" },
@@ -112,7 +110,7 @@ const Forms: React.FC = () => {
                     as={type === "textarea" ? "textarea" : "input"}
                     name={name}
                     id={name}
-                    className={`w-full px-4 py-2 bg-violet-700 text-white border-b-2 border-black outline-none focus:outline-none focus:border-black ${type === "textarea" ? "resize-none" : ""}`}
+                    className="w-full px-4 py-2 bg-violet-700 text-white border-b-2 border-black outline-none focus:outline-none focus:border-black"
                     required
                     style={{ boxShadow: "none" }}
                   />
@@ -125,35 +123,35 @@ const Forms: React.FC = () => {
               ))}
             </div>
 
-            <div className="mb-4 w-full flex justify-center">
-              <div className="w-full">
-                <label
-                  htmlFor="comments"
-                  className="block text-white text-sm font-medium"
-                >
-                  Your Message <span className="text-white">*</span>
-                </label>
-                <Field
-                  as="textarea"
-                  name="comments"
-                  id="comments"
-                  className="w-full px-4 py-2 bg-violet-700 text-white border-b-2 border-black outline-none focus:outline-none focus:border-black resize"
-                  required
-                  style={{ boxShadow: "none" }}
-                />
-                <ErrorMessage
-                  name="comments"
-                  component="div"
-                  className="text-red-500 text-sm mt-1"
-                />
-              </div>
+            <div className="mb-4 w-full flex flex-col">
+              <label
+                htmlFor="comments"
+                className="block text-white text-sm font-medium"
+              >
+                Your Message <span className="text-white">*</span>
+              </label>
+              <Field
+                as="textarea"
+                name="comments"
+                id="comments"
+                className="w-full px-4 py-2 bg-violet-700 text-white border-b-2 border-black outline-none focus:outline-none focus:border-black resize-none"
+                required
+                style={{ boxShadow: "none" }}
+              />
+              <ErrorMessage
+                name="comments"
+                component="div"
+                className="text-red-500 text-sm mt-1"
+              />
             </div>
 
             <div className="mb-4 w-full flex justify-end">
-            <button
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`px-6 py-3 rounded-full border-2 border-black shadow transition duration-400 ${isSubmitting ? 'bg-transparent' : 'bg-violet-700 hover:bg-violet-600'} text-black flex items-center`}
+                className={`px-6 py-3 rounded-full border-2 border-black shadow transition duration-400 ${
+                  isSubmitting ? 'bg-transparent' : 'bg-violet-700 hover:bg-violet-600'
+                } text-black flex items-center`}
               >
                 {isSubmitting ? (
                   <div className="w-5 h-5 border-4 border-black border-t-transparent rounded-full animate-spin mr-2" />
@@ -162,6 +160,7 @@ const Forms: React.FC = () => {
                 )}
               </button>
             </div>
+
             {successMessage && (
               <div className="mt-4 text-center font-bold text-green-500">
                 {successMessage}
@@ -175,13 +174,6 @@ const Forms: React.FC = () => {
           </Form>
         )}
       </Formik>
-
-      {/* <Modal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        isSuccess={isSuccess}
-        message={errorMessage}
-      /> */}
     </div>
   )
 }
