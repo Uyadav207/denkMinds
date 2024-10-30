@@ -44,7 +44,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
     href={linkedinUrl}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-blue-500"
+    className="text-black"
   >
     <FaLinkedin size={24} />
   </a>
@@ -52,7 +52,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
     href={githubUrl}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-500"
+    className="text-black"
   >
     <FaGithub size={24} />
   </a>
@@ -60,7 +60,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
     href={portfolioUrl}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-green-500"
+    className="text-black"
   >
     <FaGlobe size={24} />
   </a>
