@@ -143,10 +143,9 @@ const Header = () => {
               initial={{ x: '100%' }}
               animate={{ x: '0%' }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              transition={{ stiffness: 100 }}
             >
               <div className="flex justify-between items-center p-4">
-                <h2 className="text-lg font-bold">Menu</h2>
                 <button
                   onClick={toggleMenu}
                   aria-label="Close menu"
@@ -178,7 +177,7 @@ const Header = () => {
                 </Link>
                 <Link
                   href="#mission"
-                  onClick={(e) => handleScroll(e, 'team')}
+                  onClick={(e) => handleScroll(e, 'mission')}
                   className="bg-gray-100 text-black text-center p-3 rounded-lg font-bold transition duration-200 hover:bg-violet-500 hover:text-white"
                 >
                   Mission
