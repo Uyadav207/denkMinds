@@ -110,7 +110,7 @@ const Forms: React.FC = () => {
                     as={type === "textarea" ? "textarea" : "input"}
                     name={name}
                     id={name}
-                    className="w-full px-4 py-2 bg-violet-700 text-white border-b-2 border-black outline-none focus:outline-none focus:border-black"
+                    className="w-full px-4 py-2 bg-transparent text-white border-b-2 border-white outline-none focus:outline-none focus:border-white"
                     required
                     style={{ boxShadow: "none" }}
                   />
@@ -134,7 +134,7 @@ const Forms: React.FC = () => {
                 as="textarea"
                 name="comments"
                 id="comments"
-                className="w-full px-4 py-2 bg-violet-700 text-white border-b-2 border-black outline-none focus:outline-none focus:border-black resize-none"
+                className="w-full px-4 py-2 bg-transparent text-white border-b-2 border-white outline-none focus:outline-none focus:border-white resize-none"
                 required
                 style={{ boxShadow: "none" }}
               />
@@ -149,14 +149,15 @@ const Forms: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`px-6 py-3 rounded-full border-2 border-black shadow transition duration-400 ${
-                  isSubmitting ? 'bg-transparent' : 'bg-violet-700 hover:bg-violet-600'
+                className={`px-6 py-3 rounded-full border-2 border-white shadow transition duration-400 ${
+                  isSubmitting ? 'bg-transparent' : 'bg-transparent hover:bg-black'
                 } text-black flex items-center`}
               >
                 {isSubmitting ? (
                   <div className="w-5 h-5 border-4 border-black border-t-transparent rounded-full animate-spin mr-2" />
                 ) : (
-                  <SendRoundedIcon />
+                  <SendRoundedIcon className="text-white" />
+
                 )}
               </button>
             </div>
