@@ -5,24 +5,24 @@ import { teamMembers } from '../../data/teamData'
 const Team = () => (
   <section
     id="team"
-    className="flex items-center justify-center min-h-screen bg-gray- p-8"
+    className="flex items-center justify-center min-h-screen bg-[#1F1B2E] p-8"
   >
-    
-    <div className="max-w-6xl w-full">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-Black text-center mb-16 drop-shadow-md">
+    <div className="w-full">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-16 drop-shadow-md">
         Meet Our Team
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {teamMembers.map((member, index) => (
-          <TeamCard
-            key={index}
-            name={member.name}
-            role={member.role}
-            image={member.image}
-            linkedinUrl={member.linkedinUrl}
-            githubUrl={member.githubUrl}
-            portfolioUrl={member.portfolioUrl}
-          />
+          <div key={index} className="w-full"> {/* Wrapper div for full width */}
+            <TeamCard
+              name={member.name}
+              role={member.role}
+              image={member.image}
+              linkedinUrl={member.linkedinUrl}
+              githubUrl={member.githubUrl}
+              portfolioUrl={member.portfolioUrl}
+            />
+          </div>
         ))}
       </div>
     </div>
