@@ -18,7 +18,7 @@ export const teamMembers = [
   {
     name: 'Sindhura Shivaprasad',
     role: 'Developer',
-    image: '/TeamImages/sindhura-shivaprasad.jpg',
+    image: '/TeamImages/sindhura-shivaprasad.jpeg',
     linkedinUrl: 'https://www.linkedin.com/in/sindhura-s-9a55731b4/',
     githubUrl: 'https://github.com/Sindhura492',
     portfolioUrl: '',
@@ -39,12 +39,12 @@ export const teamMembers = [
     githubUrl: 'https://github.com/Nithin-Valiyaveedu',
     portfolioUrl: 'https://3d-portfolio-steel-sigma.vercel.app/',
   },
-  {
-    name:'Maria Chemnitz',
-    role:'Developer',
-    image:'',
-    linkedinUrl:'',
-    githubUrl:'',
-    portfolioUrl:"",
-  },
+  // {
+  //   name:'Maria Chemnitz', 
+  //   role:'Developer',
+  //   image:'',
+  //   linkedinUrl:'',
+  //   githubUrl:'',
+  //   portfolioUrl:"",
+  // },
 ]

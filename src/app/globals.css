@@ -37,11 +37,16 @@ body {
   background-size: 200% 200%;
   animation: gradient-animation 3s ease infinite;
 }
+
+.header {
+  background: transparent;
+}
+
 html, body {
   overflow-y: scroll; /* Allows vertical scrolling */
-  scroll-snap-type: y mandatory; /* Enable scroll snapping on the y-axis */
   margin: 0;
   padding: 0;
+  background: #080115;
 }
 
 section {
@@ -84,88 +89,6 @@ input:focus, textarea:focus {
   }
 }
 
-/* Background shapes animation */
-.shapes-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-/* Shape styling */
-.shape {
-  position: absolute;
-  opacity: 0.2;
-  filter: blur(8px); /* Slightly reduced blur */
-  animation: bounce 6s ease-in-out infinite alternate;
-}
-
-/* Shape colors, sizes, and positions */
-.shape-green {
-  width: 120px;
-  height: 120px;
-  background-color: #22c55e;
-  top: 15%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.shape-yellow {
-  width: 150px;
-  height: 150px;
-  background-color: #facc15;
-  top: 40%;
-  left: 70%;
-  animation-delay: 1.5s;
-}
-
-.shape-pink {
-  width: 180px;
-  height: 180px;
-  background-color: #ec4899;
-  top: 65%;
-  left: 25%;
-  animation-delay: 3s;
-}
-
-.shape-blue {
-  width: 140px;
-  height: 140px;
-  background-color: #3b82f6;
-  top: 75%;
-  left: 85%;
-  animation-delay: 2s;
-}
-
-.shape-red {
-  width: 130px;
-  height: 130px;
-  background-color: #ef4444;
-  top: 25%;
-  left: 55%;
-  animation-delay: 2.5s;
-}
-
-.shape-orange {
-  width: 160px;
-  height: 160px;
-  background-color: #f97316;
-  top: 50%;
-  left: 15%;
-  animation-delay: 1s;
-}
-
-.shape-purple {
-  width: 110px;
-  height: 110px;
-  background-color: #a855f7;
-  top: 10%;
-  left: 75%;
-  animation-delay: 3.5s;
-}
 
 /* Bounce animation for shapes */
 @keyframes bounce {
@@ -284,6 +207,78 @@ input:focus, textarea:focus {
 
 /* Hover Effect */
 .gradient-outline-button:hover {
-  /* background: linear-gradient(90deg, #ff6b6b, #f06595, #845ec2); */
   color: black;
 }
+
+
+.underline-onhover {
+  position: relative;
+  text-decoration: none; /* Remove default underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.underline-onhover .underline-purple::after {
+  background: #8b5cf6;
+  color: #8b5cf6 
+}
+
+.underline-onhover .underline-white::after {
+  background: #fff;
+  color: #fff
+}
+
+.underline-onhover .hover-color-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px; /* Thickness of the underline */
+  transform: scaleX(0); /* Start hidden */
+  transition: transform 0.3s ease; /* Animation duration */
+  transform-origin: left;
+}
+
+.underline-onhover:hover .hover-color-text::after {
+  transform: scaleX(1); /* Show underline */
+  transition: transform 0.3s ease; /* Transition in */
+  transform-origin: left;
+}
+.underline-onhover .hover-color-text::after {
+  transform-origin: left; /* Ensure it grows from left to right */
+}
+.underline-onhover:not(:hover) .hover-color-text::after {
+  transition: transform 0.3s ease; /* Transition out */
+  transform: scaleX(0); /* Hide underline */
+  transform-origin: right; /* Ensure it shrinks from right to left */
+}
+
+
+.loaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.loaderText {
+  display: flex;
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Arial Black', sans-serif;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.1em;
+}
+
+.letter {
+  display: inline-block;
+}
+
