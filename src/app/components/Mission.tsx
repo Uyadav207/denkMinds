@@ -38,13 +38,13 @@ const Mission = () => {
         </div>
 
         <div
-          className="absolute bg-[rgba(218,88,166,0.5)] w-[500px] h-[500px] -left-[100px] -top-[250px] z-0"
-          style={{ filter: 'blur(250px)' }}
+          className="absolute w-[500px] h-[500px] -left-[100px] -top-[250px] z-0"
+          style={{ filter: 'blur(250px)', backgroundColor: '#da58a680' }}
         ></div>
 
         <div
-          className="absolute bg-[rgba(102,107,209,0.5)] w-[700px] h-[700px] -right-[350px] -bottom-[350px] z-0"
-          style={{ filter: 'blur(250px)' }}
+          className="absolute w-[700px] h-[700px] -right-[350px] -bottom-[350px] z-0"
+          style={{ filter: 'blur(250px)', backgroundColor: '#666bd180' }}
         ></div>
       </div>
     </section>
