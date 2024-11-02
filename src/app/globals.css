@@ -207,9 +207,9 @@ input:focus, textarea:focus {
 
 /* Hover Effect */
 .gradient-outline-button:hover {
-  /* background: linear-gradient(90deg, #ff6b6b, #f06595, #845ec2); */
   color: black;
 }
+
 
 .underline-onhover {
   position: relative;
@@ -253,6 +253,7 @@ input:focus, textarea:focus {
   transform-origin: right; /* Ensure it shrinks from right to left */
 }
 
+
 .loaderContainer {
   position: fixed;
   top: 0;
@@ -280,3 +281,4 @@ input:focus, textarea:focus {
 .letter {
   display: inline-block;
 }
+
