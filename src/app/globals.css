@@ -39,14 +39,14 @@ body {
 }
 
 .header {
-  background: linear-gradient(90deg, #ff6b6b, #f06595, #845ec2);
+  background: transparent;
 }
 
 html, body {
   overflow-y: scroll; /* Allows vertical scrolling */
   margin: 0;
   padding: 0;
-  background: linear-gradient(90deg, #ff6b6b, #f06595, #845ec2);
+  background: #080115;
 }
 
 section {
