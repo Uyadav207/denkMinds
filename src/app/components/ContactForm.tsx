@@ -2,14 +2,16 @@ import React from "react"
 import Forms from "./forms/Forms"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons'; // Import icons
+import { faAt } from "@fortawesome/free-solid-svg-icons";
 
 const ContactForm = () => {
   return (
     <section
       id="contactform"
-      className="flex flex-col md:flex-row min-h-screen sm:pt-16"
+      className="flex flex-col md:flex-row min-h-screen bg-background-home opacity-80"
     >
-      <div className="w-full md:w-2/5 bg-contactus-gradient text-white flex flex-col pt-20 transition-opacity duration-300 p-10">
+      <div className="w-full md:w-2/5 text-white flex flex-col pt-20 transition-opacity duration-300 p-10">
         <h2 className="text-6xl font-bold text-white text-center mb-8">
           Say Hello!
         </h2>
@@ -17,14 +19,14 @@ const ContactForm = () => {
           <Forms />
         </div>
       </div>
-      <div className="w-full md:w-3/5 bg-media-gradient text-white flex flex-col pt-20 transition-opacity duration-300 p-10">
+      <div className="w-full md:w-3/5 text-white flex flex-col pt-20 transition-opacity duration-300 p-10">
         <h2 className="text-5xl font-bold text-white mb-4">
           <span className="text-violet-400">Stop in</span>, get to know us, and let's see how we can work together.
           {/* Stop by our <span className="text-violet-400">studio</span> and share
           your thoughts on your project. */}
         </h2>
 
-        <div className="flex flex-col xl:flex-row gap-10 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 py-8">
           <div className="flex mt-4 md:mt-0">
             <div className="flex flex-col">
               <p className="text-xl">Reichenhainer Str 37,</p>
@@ -38,19 +40,46 @@ const ContactForm = () => {
             </div>
           </div>
 
+
+
           {/* Contact Us */}
+
           <div className="flex mt-4 md:mt-0">
             <div className="flex flex-col">
-              <div className="flex items-center gap-4">
-                <Link href="mailto:contact.pentamorphs@gmail.com" className="flex items-center gap-2 underline-onhover hover:text-violet-500" title="Send us an email" >
-                  {/* <FontAwesomeIcon icon={['fas', 'envelope']} size="2x" /> */}
-                  <p className="hover-color-text underline-purple">contact.pentamorphs@gmail.com</p>
+              <p className="text-xl pb-4">Get to know us</p>
+              <div className='flex mt-4 md:mt-0 gap-9'>
+                <Link href="https://www.linkedin.com/in/denkminds/" className='hover:text-violet-500' target="_blank" rel="noopener noreferrer" title="Follow us on LinkedIn">
+                  <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                </Link>
+                <Link href="https://x.com/denkminds" className='hover:text-violet-500' target="_blank" rel="noopener noreferrer" title="Follow us on Twitter">
+                  <FontAwesomeIcon icon={faXTwitter} size="2x" />
+                </Link>
+                <Link href="mailto:denkminds@gmail.com" className='hover:text-violet-500' target="_blank" rel="noopener noreferrer" title="Send us an email">
+                  <FontAwesomeIcon icon={faAt} size="2x" />
                 </Link>
               </div>
 
             </div>
           </div>
+          
+        </div>
 
+        <div className="flex flex-col xl:flex-row gap-10 py-8">
+
+        <div className="flex mt-4 md:mt-0">
+            <div className="flex flex-col">
+              
+              <Link href="/privacy" className="underline-onhover text-violet-500 hover:text-white">
+                <span className="text-xl hover-color-text underline-white">Privacy Policy</span>
+              </Link>
+
+              <Link href="/privacy" className="underline-onhover text-violet-500 hover:text-white">
+                <span className="text-xl hover-color-text underline-white">Terms & Conditions</span>
+              </Link>
+            </div>
+          </div>
+
+  
         </div>
       </div>
     </section>

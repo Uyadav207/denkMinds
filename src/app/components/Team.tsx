@@ -5,7 +5,7 @@ import { teamMembers } from '../../data/teamData'
 const Team = () => (
   <section
     id="team"
-    className="flex items-center justify-center min-h-screen bg-[#1F1B2E] p-8"
+    className="flex items-center justify-center min-h-screen p-8"
   >
     <div className="w-full">
       <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-16 drop-shadow-md">

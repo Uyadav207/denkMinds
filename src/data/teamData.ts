@@ -39,12 +39,12 @@ export const teamMembers = [
     githubUrl: 'https://github.com/Nithin-Valiyaveedu',
     portfolioUrl: 'https://3d-portfolio-steel-sigma.vercel.app/',
   },
-  {
-    name:'Maria Chemnitz',
-    role:'Developer',
-    image:'',
-    linkedinUrl:'',
-    githubUrl:'',
-    portfolioUrl:"",
-  },
+  // {
+  //   name:'Maria Chemnitz', 
+  //   role:'Developer',
+  //   image:'',
+  //   linkedinUrl:'',
+  //   githubUrl:'',
+  //   portfolioUrl:"",
+  // },
 ]
