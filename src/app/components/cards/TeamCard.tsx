@@ -19,7 +19,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
   githubUrl,
   portfolioUrl,
 }) => (
-  <div className="group flex flex-col w-full overflow-hidden mb-9 mx-auto border-1 border-r border-gray-700 border-t-0 border-b-0 bg-transparent text-center mx-auto transition-all duration-300 hover:bg-[#E0BBE4] hover:bg-opacity-20 ">
+  <div className="group flex flex-col w-full overflow-hidden mb-9 mx-auto border-1 border-r border-gray-700 border-t-0 border-b-0 bg-transparent text-center transition-all duration-300 hover:bg-[#E0BBE4] hover:bg-opacity-20 p-5">
    
     {/* Profile Image */}
     <div className="relative w-64 h-64 rounded-full overflow-hidden mb-6 mx-auto transition-all duration-300">
