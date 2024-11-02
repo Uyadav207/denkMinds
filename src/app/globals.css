@@ -287,3 +287,45 @@ input:focus, textarea:focus {
   color: black;
 }
 
+
+.underline-onhover {
+  position: relative;
+  text-decoration: none; /* Remove default underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.underline-onhover .underline-purple::after {
+  background: #8b5cf6;
+  color: #8b5cf6 
+}
+
+.underline-onhover .underline-white::after {
+  background: #fff;
+  color: #fff
+}
+
+.underline-onhover .hover-color-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px; /* Thickness of the underline */
+  transform: scaleX(0); /* Start hidden */
+  transition: transform 0.3s ease; /* Animation duration */
+  transform-origin: left;
+}
+
+.underline-onhover:hover .hover-color-text::after {
+  transform: scaleX(1); /* Show underline */
+  transition: transform 0.3s ease; /* Transition in */
+  transform-origin: left;
+}
+.underline-onhover .hover-color-text::after {
+  transform-origin: left; /* Ensure it grows from left to right */
+}
+.underline-onhover:not(:hover) .hover-color-text::after {
+  transition: transform 0.3s ease; /* Transition out */
+  transform: scaleX(0); /* Hide underline */
+  transform-origin: right; /* Ensure it shrinks from right to left */
+}

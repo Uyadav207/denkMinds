@@ -19,9 +19,10 @@ const TeamCard: React.FC<TeamCardProps> = ({
   githubUrl,
   portfolioUrl,
 }) => (
-  <div className="group flex flex-col items-center text-center space-y-4 w-48 mx-auto">
-    {/* Circular Profile Image */}
-    <div className="relative w-56 h-56 rounded-full overflow-hidden transition-all duration-300">
+  <div className="group flex flex-col w-full overflow-hidden mb-9 mx-auto border-1 border-r border-gray-700 border-t-0 border-b-0 bg-transparent text-center mx-auto transition-all duration-300 hover:bg-[#E0BBE4] hover:bg-opacity-20 ">
+   
+    {/* Profile Image */}
+    <div className="relative w-64 h-64 rounded-full overflow-hidden mb-6 mx-auto transition-all duration-300">
       <Image
         src={image}
         alt={`${name}'s picture`}
@@ -30,43 +31,42 @@ const TeamCard: React.FC<TeamCardProps> = ({
         objectPosition="top"
         className="rounded-full grayscale group-hover:grayscale-0 transition-all duration-300"
       />
-      </div>
+    </div>
 
-{/* Name and Role with Updated Style */}
-<div className="flex flex-col items-center justify-center">
-<h3 className="text-lg font-semibold text-gray-900">{name}</h3>
-<p className="text-lg text-gray-600 mb-2]">{role}</p>
-</div>
+    {/* Name */}
+    <h3 className="text-2xl font-semibold text-white mb-2">{name}</h3>
 
-{/* Social Media Icons Below Role */}
-<div className="flex space-x-4">
-  <a
-    href={linkedinUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-black"
-  >
-    <FaLinkedin size={24} />
-  </a>
-  <a
-    href={githubUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-black"
-  >
-    <FaGithub size={24} />
-  </a>
-  <a
-    href={portfolioUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-black"
-  >
-    <FaGlobe size={24} />
-  </a>
-</div>
-</div>
+    {/* Role */}
+    <p className="text-lg text-gray-400 mb-6">{role}</p>
 
+    {/* Social Media Icons */}
+    <div className="flex justify-center space-x-6">
+      <a
+        href={linkedinUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-[#6D28D9]"
+      >
+        <FaLinkedin size={24} />
+      </a>
+      <a
+        href={githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-[#6D28D9]"
+      >
+        <FaGithub size={24} />
+      </a>
+      <a
+        href={portfolioUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-[#6D28D9]"
+      >
+        <FaGlobe size={24} />
+      </a>
+    </div>
+  </div>
 )
 
 export default TeamCard
