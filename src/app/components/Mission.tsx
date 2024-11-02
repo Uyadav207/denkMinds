@@ -1,36 +1,54 @@
 import React from 'react'
+
 import Image from 'next/image'
 
-const Mission = () => (
-  <section
-    id="mission"
-    className="flex flex-col items-center justify-center min-h-screen bg-gray"
-  >
-    <h1 className="text-3xl md:text-5xl font-extrabold text-Black text-center mb-12 drop-shadow-md">
-      Our Mission
-    </h1>
-    <div className="bg-[#22223b] px-10 py-20 rounded-2xl shadow-lg text-white w-4/5 mx-auto transition-transform transform hover:scale-105">
-      <div className="w-full flex items-center justify-center">
-        <Image
-          src={'/quote.svg'}
-          alt="quote"
-          className="h-20 w-20 md:h-24 md:w-24"
-          width={64}
-          height={64}
-        />
+const Mission = () => {
+  return (
+    <section
+      id="mission"
+      className="min-h-screen w-full flex justify-center items-center  "
+    >
+      <div className="relative overflow-hidden bg-[#0e090c] flex justify-center items-center min-h-[50vh] w-full text-white px-6  ">
+        <div className="absolute left-[50px] sm:left-[100px] top-5 md:top-10 md:left-[200px] z-10">
+          <Image
+            src={'/quotes.svg'}
+            alt="quote"
+            className="h-20 w-20 md:h-40 md:w-40"
+            width={64}
+            height={64}
+          />
+        </div>
+
+        <div className="relative flex w-full xl:w-3/4 space-x-4 items-start justify-start z-10">
+          <div className="flex flex-col w-full xl:flex-row  items-center xl:space-x-20 space-y-4">
+            <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white xl:leading-none">
+              Our Mission
+            </h2>
+            <div className="w-full text-justify">
+              <blockquote className="italic w-full font-normal text-lg xl:text-lg text-gray-200 leading-relaxed">
+                &ldquo;At denkMinds, we are dedicated to crafting AI-powered
+                solutions that go beyond technology, addressing real-world
+                challenges and making a tangible impact. Our products are
+                meticulously designed with a focus on quality and reliability,
+                ensuring they meet the highest standards for both performance
+                and durabilit .&rdquo;
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="absolute bg-[rgba(218,88,166,0.5)] w-[500px] h-[500px] -left-[100px] -top-[250px] z-0"
+          style={{ filter: 'blur(250px)' }}
+        ></div>
+
+        <div
+          className="absolute bg-[rgba(102,107,209,0.5)] w-[700px] h-[700px] -right-[350px] -bottom-[350px] z-0"
+          style={{ filter: 'blur(250px)' }}
+        ></div>
       </div>
-      <div className="text-white w-full md:w-3/4 xl:w-1/2 mx-auto mt-8 text-center">
-        <p className="text-lg md:text-2xl leading-relaxed tracking-wide">
-          At{' '}
-          <span className="bg-clip-text text-transparent animate-gradient bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500">
-            PentaMorphs
-          </span>
-          , we craft AI-powered products designed for real-world impact,
-          prioritizing quality, reliability, and exceptional user satisfaction.
-        </p>
-      </div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
 
 export default Mission
