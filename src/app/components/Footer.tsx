@@ -9,10 +9,10 @@ const Footer = () => {
       <div className="w-full md:w-2/5 bg-black text-white flex flex-col justify-center transition-opacity duration-300 p-10 pb-30">
         <div className='flex mt-4 md:mt-0 gap-9 md:pl-5'>
           <Link href="https://www.linkedin.com/in/denkminds/" className='hover:text-violet-500' target="_blank" rel="noopener noreferrer" title="Follow us on LinkedIn">
-            <FontAwesomeIcon icon={['fab', 'linkedin']} size="2x" />
+            <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </Link>
           <Link href="https://x.com/denkminds" className='hover:text-violet-500' target="_blank" rel="noopener noreferrer" title="Follow us on Twitter">
-            <FontAwesomeIcon icon={['fab', 'x-twitter']} size="2x" />
+            <FontAwesomeIcon icon={faXTwitter} size="2x" />
           </Link>
         </div>
       </div>
