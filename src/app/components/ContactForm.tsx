@@ -7,7 +7,7 @@ const ContactForm = () => {
   return (
     <section
       id="contactform"
-      className="flex flex-col md:flex-row min-h-screen sm:pt-16"
+      className="flex flex-col md:flex-row min-h-screen"
     >
       <div className="w-full md:w-2/5 bg-contactus-gradient text-white flex flex-col pt-20 transition-opacity duration-300 p-10">
         <h2 className="text-6xl font-bold text-white text-center mb-8">
@@ -42,9 +42,9 @@ const ContactForm = () => {
           <div className="flex mt-4 md:mt-0">
             <div className="flex flex-col">
               <div className="flex items-center gap-4">
-                <Link href="mailto:contact.pentamorphs@gmail.com" className="flex items-center gap-2 underline-onhover hover:text-violet-500" title="Send us an email" >
+                <Link href="mailto:denkminds@gmail.com" className="flex items-center gap-2 underline-onhover hover:text-violet-500" title="Send us an email" >
                   {/* <FontAwesomeIcon icon={['fas', 'envelope']} size="2x" /> */}
-                  <p className="hover-color-text underline-purple">contact.pentamorphs@gmail.com</p>
+                  <p className="hover-color-text underline-purple">denkminds@gmail.com</p>
                 </Link>
               </div>
 
