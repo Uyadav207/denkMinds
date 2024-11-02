@@ -18,7 +18,7 @@ export const teamMembers = [
   {
     name: 'Sindhura Shivaprasad',
     role: 'Developer',
-    image: '/TeamImages/sindhura-shivaprasad.jpg',
+    image: '/TeamImages/sindhura-shivaprasad.jpeg',
     linkedinUrl: 'https://www.linkedin.com/in/sindhura-s-9a55731b4/',
     githubUrl: 'https://github.com/Sindhura492',
     portfolioUrl: '',

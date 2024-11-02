@@ -1,12 +1,12 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
-import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons'; // Import icons
+import Link from 'next/link';
+import React from 'react';
 
 const Footer = () => {
   return (
     <section className="flex flex-col md:flex-row">
-      <div className="w-full md:w-2/5 bg-black text-white flex flex-col justify-center  transition-opacity duration-300 p-10 pb-30">
-
+      <div className="w-full md:w-2/5 bg-black text-white flex flex-col justify-center transition-opacity duration-300 p-10 pb-30">
         <div className='flex mt-4 md:mt-0 gap-9 md:pl-5'>
           <Link href="https://www.linkedin.com/in/denkminds/" className='hover:text-violet-500' target="_blank" rel="noopener noreferrer" title="Follow us on LinkedIn">
             <FontAwesomeIcon icon={['fab', 'linkedin']} size="2x" />
@@ -36,11 +36,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div><p>DISCLAIMER: This website does not belong to a real company. It is a Planspiel Web Engineering project.</p></div>
+        <div>
+          <p>DISCLAIMER: This website does not belong to a real company. It is a Planspiel Web Engineering project.</p>
+        </div>
       </div>
-    </section >
+    </section>
+  );
+};
 
-  )
-}
-
-export default Footer
+export default Footer;
