@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true)
   const [hasShadow, setHasShadow] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeLink, setActiveLink] = useState('home') // Track active link
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +41,7 @@ const Header = () => {
 
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      setActiveLink(targetId) // Set active link when clicked
     }
     if (isMenuOpen) {
       toggleMenu() // Close mobile menu after navigation
@@ -49,158 +50,119 @@ const Header = () => {
 
   return (
     <>
-      {/* Conditionally render the header */}
-      {!isMenuOpen && (
-        <header
-          className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out ${
-            isVisible
-              ? 'transform translate-y-0'
-              : 'transform -translate-y-full'
+      <header
+        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out header ${isVisible
+            ? 'transform translate-y-0'
+            : 'transform -translate-y-full'
           } ${hasShadow ? 'shadow-md' : 'shadow-none'}`}
-          style={{ backgroundColor: '#efefef' }}
-        >
-          <div className="container mx-auto flex justify-between items-center p-4">
-            <div className="flex items-center space-x-2">
-              <Link href="/">
-                <Image
-                  src="/logo.png"
-                  alt="Pentamorphs Logo"
-                  width={48}
-                  height={48}
-                  className="h-12 w-12"
-                />
-              </Link>
-              <p className="text-black font-bold text-lg">PentaMorphs</p>
-            </div>
+      >
+        <div className="container mx-auto flex justify-between space-x-7 items-center p-4">
+          <div className="flex items-center space-x-2 md:flex">
+            <p className="text-white font-bold text-2xl">denkMinds</p>
+          </div>
 
-            {/* Hamburger Icon */}
-            <div className="md:hidden">
-              <button onClick={toggleMenu} aria-label="Toggle menu">
-                <svg
-                  className="w-8 h-8 text-black"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+          <div className="hidden md:flex items-center space-x-6">
+            <nav className="flex space-x-7 bg-black p-2 pr-4 pl-4 rounded-3xl border-black">
+              {['home', 'mission', 'team', 'contactform'].map((section) => (
+                <a
+                  key={section}
+                  href={`#${section}`}
+                  onClick={(e) => handleScroll(e, section)}
+                  className={`transition
+                              ${activeLink === section ? ' text-black bg-white rounded-full p-1 text-sm pr-2 pl-2' : ' text-white'}`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* Navigation Menu */}
-            <nav className={`hidden md:flex space-x-4`}>
-              <a
-                href="#home"
-                onClick={(e) => handleScroll(e, 'home')}
-                className="text-black hover:text-violet-500"
-              >
-                Home
-              </a>
-              <a
-                href="#mission"
-                onClick={(e) => handleScroll(e, 'mission')}
-                className="text-black hover:text-violet-500"
-              >
-                Mission
-              </a>
-              <a
-                href="#team"
-                onClick={(e) => handleScroll(e, 'team')}
-                className="text-black hover:text-violet-500"
-              >
-                Team
-              </a>
-              <a
-                href="#contactform"
-                onClick={(e) => handleScroll(e, 'contactform')}
-                className="text-black hover:text-violet-500"
-              >
-                Contact
-              </a>
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
+              ))}
             </nav>
           </div>
-        </header>
-      )}
 
-      {/* Sliding Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="fixed inset-0 bg-white bg-opacity-50 z-40"
-            onClick={toggleMenu}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+          <div className="md:hidden right-0 top-0">
+            <button onClick={toggleMenu} aria-label="Toggle menu">
+              <svg
+                className="w-8 h-8 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
+          <div>
+            <button disabled className="bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-blue-600">
+              Launch App
+            </button>
+          </div>
+        </div>
+
+        <AnimatePresence>
+          {isMenuOpen && (
             <motion.div
-              className="fixed right-0 top-0 w-64 bg-white h-full shadow-lg z-50 backdrop-filter backdrop-blur-lg" // Add backdrop-filter for blur
-              initial={{ x: '100%' }}
-              animate={{ x: '0%' }}
-              exit={{ x: '100%' }}
-              transition={{ stiffness: 100 }}
+              className="fixed inset-0 bg-gray bg-opacity-50 z-40"
+              onClick={toggleMenu}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              <div className="flex justify-between items-center p-4">
-                <button
-                  onClick={toggleMenu}
-                  aria-label="Close menu"
-                  className="text-black"
-                >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+              <motion.div
+                className="fixed right-0 top-0 w-64  h-full shadow-lg header z-50 backdrop-filter backdrop-blur-lg"
+                initial={{ x: '100%' }}
+                animate={{ x: '0%' }}
+                exit={{ x: '100%' }}
+                transition={{ stiffness: 100 }}
+              >
+                <div className="flex justify-between items-center p-4 top-0 right-0">
+                  <button
+                    onClick={toggleMenu}
+                    aria-label="Close menu"
+                    className="text-black"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <nav className="flex flex-col p-4 space-y-4">
-                <Link
-                  href="#home"
-                  onClick={(e) => handleScroll(e, 'home')}
-                  className="bg-gray-100 text-black text-center p-3 rounded-lg font-bold transition duration-200 hover:bg-violet-500 hover:text-white"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="#mission"
-                  onClick={(e) => handleScroll(e, 'mission')}
-                  className="bg-gray-100 text-black text-center p-3 rounded-lg font-bold transition duration-200 hover:bg-violet-500 hover:text-white"
-                >
-                  Mission
-                </Link>
-                <Link
-                  href="#team"
-                  onClick={(e) => handleScroll(e, 'team')}
-                  className="bg-gray-100 text-black text-center p-3 rounded-lg font-bold transition duration-200 hover:bg-violet-500 hover:text-white"
-                >
-                  Team
-                </Link>
-                <Link
-                  href="#contactform"
-                  onClick={(e) => handleScroll(e, 'contactform')}
-                  className="bg-gray-100 text-black text-center p-3 rounded-lg font-bold transition duration-200 hover:bg-violet-500 hover:text-white"
-                >
-                  Contact
-                </Link>
-              </nav>
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <nav className="flex flex-col p-4 space-y-4 header backdrop-filter min-h-screen">
+                  {['home', 'mission', 'team', 'contactform'].map((section) => (
+                    <Link
+                      key={section}
+                      href={`#${section}`}
+                      onClick={(e) => handleScroll(e, section)}
+                      className={`bg-gray-100 text-black text-center p-3 rounded-lg font-bold transition duration-200 
+                                  ${activeLink === section ? 'bg-white text-black' : ''}`}
+                    >
+                      {section.charAt(0).toUpperCase() + section.slice(1)}
+                    </Link>
+                  ))}
+                  <div>
+                    <button className="bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-blue-600">
+                      Launch App
+                    </button>
+                  </div>
+                </nav>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </header>
     </>
   )
 }
