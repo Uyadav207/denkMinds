@@ -14,10 +14,14 @@ const Home: React.FC = () => {
 
 
 
-      <main className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl space-y-8 md:space-y-0 md:space-x-12">
-        <div className="flex flex-col items-start text-left space-y-4 md:w-2/3">
-        </div>
-      </main>
+      <main className="relative z-10 flex flex-col md:flex-row items-center justify-center w-full h-full max-w-6xl">
+  <img 
+    src="/logo2.webp" 
+    alt="Logo" 
+    className="w-112 h-auto" 
+  />
+</main>
+
     </section>
   )
 }
