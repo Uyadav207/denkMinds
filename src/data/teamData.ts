@@ -2,7 +2,7 @@ export const teamMembers = [
   {
     name: 'Utkarsh Yadav',
     role: 'Developer',
-    image: '/TeamImages/utkarsh-yadav.jpeg',
+    image: '/TeamImages/utkarsh-yadav.jpg',
     linkedinUrl: 'https://www.linkedin.com/in/yadavutkarsh',
     githubUrl: 'https://github.com/Uyadav207',
     portfolioUrl: 'https://utkarshyadav.vercel.app/',
@@ -39,12 +39,12 @@ export const teamMembers = [
     githubUrl: 'https://github.com/Nithin-Valiyaveedu',
     portfolioUrl: 'https://3d-portfolio-steel-sigma.vercel.app/',
   },
-  // {
-  //   name:'Maria Chemnitz', 
-  //   role:'Developer',
-  //   image:'',
-  //   linkedinUrl:'',
-  //   githubUrl:'',
-  //   portfolioUrl:"",
-  // },
+  {
+    name: 'Maria Chemnitz',
+    role: 'Developer',
+    image: '/TeamImages/mariya-george.jpg',
+    linkedinUrl: '',
+    githubUrl: '',
+    portfolioUrl: '',
+  },
 ]
