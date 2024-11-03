@@ -54,7 +54,7 @@ const Header = () => {
         className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out header ${isVisible
             ? 'transform translate-y-0'
             : 'transform -translate-y-full'
-          } ${hasShadow ? 'shadow-md' : 'shadow-none'}`}
+          }`}
       >
         <div className="container mx-auto flex justify-between space-x-7 items-center p-4">
           <div className="flex items-center space-x-2 md:flex">
@@ -62,7 +62,7 @@ const Header = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <nav className="flex space-x-7 bg-black p-2 pr-4 pl-4 rounded-3xl border-black">
+            <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 pr-4 pl-4 rounded-3xl border-black">
               {['home', 'mission', 'team', 'contactform'].map((section) => (
                 <a
                   key={section}
@@ -96,7 +96,7 @@ const Header = () => {
             </button>
           </div>
           <div>
-            <button disabled className="bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-blue-600">
+            <button disabled className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-tarnsparent border-2 border-violet-900">
               Launch App
             </button>
           </div>

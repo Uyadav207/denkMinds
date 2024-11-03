@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #efefef;
+  --background: #000000;
   --foreground: #171717;
   --text-violet: #8c52ff;
 }

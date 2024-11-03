@@ -6,7 +6,7 @@ const Mission = () => {
   return (
     <section
       id="mission"
-      className="min-h-screen w-full flex justify-center items-center  "
+      className=" w-full flex justify-center items-center  "
     >
       <div className="relative overflow-hidden bg-background-home flex justify-center items-center min-h-[50vh] w-full text-white px-6  ">
         <div className="absolute left-[50px] sm:left-[100px] top-5 md:top-10 md:left-[200px] z-10">
