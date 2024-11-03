@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const letters = [..."denkMinds."]; // Split text into individual letters
+const letters = [..."denkMinds"]; // Split text into individual letters
 
 const Loader = () => {
   const [fadeOut, setFadeOut] = useState(false);
@@ -17,20 +17,20 @@ const Loader = () => {
 
   return (
     <motion.div
-      className="loaderContainer bg-contactus-gradient"
+      className="loaderContainer bg-contactus-gradient flex items-center justify-center min-h-screen p-6 sm:p-90 md:p-90 lg:p-16" // Responsive padding for mobile view
       initial={{ opacity: 1 }}
       animate={{ opacity: fadeOut ? 0 : 1 }} // Fade out when fadeOut is true
       transition={{ duration: 1.5, ease: 'easeOut' }} // Smooth fade-out for entire loader
       style={{ pointerEvents: fadeOut ? 'none' : 'auto' }} // Disable interaction on fade-out
     >
       <motion.div
-        className="loaderText"
+        className="loaderText text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold" // Adjusted responsive font size
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
         {letters.map((letter, index) => (
-          <motion.span key={index} className="letter" variants={letterVariants}>
+          <motion.span key={index} className="letter inline-block" variants={letterVariants}>
             {letter}
           </motion.span>
         ))}

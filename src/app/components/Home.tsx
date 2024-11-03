@@ -9,7 +9,7 @@ const Home: React.FC = () => {
       className="relative flex items-center justify-center min-h-screen p-8 overflow-hidden"
     >
       <div className="absolute inset-0"></div>
-      <h1 className="text-2xl w-3/4 sm:w-1/2 xl:text-5xl  xl:w-1/3 text-center absolute top-[62%] z-10 text-white font-bold ">
+      <h1 className="text-5xl w-3/4 sm:w-1/2 xl:text-5xl  xl:w-1/3 text-center absolute top-[70%] z-10 text-white font-bold ">
         Together we{' '}
         <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
           <TypeAnimation

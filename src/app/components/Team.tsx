@@ -15,7 +15,6 @@ const Team = () => (
         {teamMembers.map((member, index) => (
           <div key={index} className="w-full">
             {' '}
-            {/* Wrapper div for full width */}
             <TeamCard
               name={member.name}
               role={member.role}
