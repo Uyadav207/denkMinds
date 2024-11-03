@@ -52,40 +52,47 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out ${isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
-          }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out ${
+          isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
+        }`}
       >
         <div className="container mx-auto flex justify-between items-center p-4">
           <p className="text-white font-bold text-2xl">denkMinds</p>
 
           <div className="hidden md:flex items-center space-x-6">
-            <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black">
+            <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black text-lg">
               {['home', 'mission', 'team', 'contact'].map((section) => (
                 <a
                   key={section}
                   href={`#${section}`}
                   onClick={(e) => handleScroll(e, section)}
-                  className={`transition ${activeLink === section ? 'text-black bg-white rounded-full p-1 text-sm' : 'text-white'
-                    }`}
+                  className={`transition ${
+                    activeLink === section
+                      ? 'text-black bg-white rounded-full px-2'
+                      : 'text-white'
+                  }`}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
               ))}
             </nav>
           </div>
-       
 
           <div className="flex items-center space-x-4">
             {/* Hide the Launch App button on mobile */}
             <button
-            disabled
-            className="bg-transparent hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"
-          >
-            Launch App
-          </button>
+              disabled
+              className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 cursor-not-allowed"
+            >
+              Launch App
+            </button>
 
             {/* Hamburger Menu Button */}
-            <button onClick={toggleMenu} aria-label="Toggle menu" className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+              className="md:hidden"
+            >
               <svg
                 className="w-8 h-8 text-white"
                 fill="none"
@@ -156,13 +163,12 @@ const Header = () => {
                     </Link>
                   ))}
                   <button
-            disabled
-            className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"
-          >
-            Launch App
-          </button>
+                    disabled
+                    className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"
+                  >
+                    Launch App
+                  </button>
                 </nav>
-
               </motion.div>
             </motion.div>
           )}
