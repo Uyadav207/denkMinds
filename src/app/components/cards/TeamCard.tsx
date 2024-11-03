@@ -19,7 +19,6 @@ const TeamCard: React.FC<TeamCardProps> = ({
   githubUrl,
   portfolioUrl,
 }) => (
-
   <div className="group flex flex-col w-full overflow-hidden mb-9 border-1 md:border-r border-gray-700 border-t-0 border-b-0 bg-transparent text-center mx-auto transition-all duration-300 hover:bg-[#E0BBE4] hover:bg-opacity-20 ">
     {/* Profile Image */}
     <div className="relative w-64 h-64 rounded-full overflow-hidden mb-6 mx-auto transition-all duration-300">
@@ -57,14 +56,16 @@ const TeamCard: React.FC<TeamCardProps> = ({
       >
         <FaGithub size={24} />
       </a>
-      {portfolioUrl && <a
-        href={portfolioUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-[#FFA1DF]"
-      >
-        <FaGlobe size={24} />
-      </a>}
+      {portfolioUrl && (
+        <a
+          href={portfolioUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-400 hover:text-[#FFA1DF]"
+        >
+          <FaGlobe size={24} />
+        </a>
+      )}
     </div>
   </div>
 )
