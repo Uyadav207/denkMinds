@@ -16,6 +16,7 @@ const Team = () => (
           <div key={index} className="w-full">
             {' '}
             <TeamCard
+              index={index}
               name={member.name}
               role={member.role}
               image={member.image}
