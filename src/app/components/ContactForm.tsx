@@ -8,7 +8,7 @@ import { faAt } from "@fortawesome/free-solid-svg-icons";
 const ContactForm = () => {
   return (
     <section
-      id="contactform"
+      id="contact"
       className="flex flex-col md:flex-row min-h-screen bg-background-home opacity-80"
     >
       <div className="w-full md:w-2/5 text-white flex flex-col pt-20 transition-opacity duration-300 p-10 ">

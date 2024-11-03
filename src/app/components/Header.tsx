@@ -32,7 +32,7 @@ const Header = () => {
   }, [])
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen) 
+    setIsMenuOpen(!isMenuOpen)
   }
 
   const handleScroll = (
@@ -41,45 +41,53 @@ const Header = () => {
   ) => {
     event.preventDefault()
     const targetElement = document.getElementById(targetId)
-    
+
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setActiveLink(targetId) 
-      if (isMenuOpen) toggleMenu() 
+      setActiveLink(targetId)
+      if (isMenuOpen) toggleMenu()
     }
   }
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out ${
-          isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out ${isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
+          }`}
       >
         <div className="container mx-auto flex justify-between items-center p-4">
           <p className="text-white font-bold text-2xl">denkMinds</p>
 
           <div className="hidden md:flex items-center space-x-6">
             <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black">
-              {['home', 'mission', 'team', 'contactform'].map((section) => (
+              {['home', 'mission', 'team', 'contact'].map((section) => (
                 <a
                   key={section}
                   href={`#${section}`}
                   onClick={(e) => handleScroll(e, section)}
-                  className={`transition ${
-                    activeLink === section ? 'text-black bg-white rounded-full p-1 text-sm' : 'text-white'
-                  }`}
+                  className={`transition ${activeLink === section ? 'text-black bg-white rounded-full p-1 text-sm' : 'text-white'
+                    }`}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
               ))}
             </nav>
           </div>
+       
 
-          <div className="md:hidden">
-            <button onClick={toggleMenu} aria-label="Toggle menu">
+          <div className="flex items-center space-x-4">
+            {/* Hide the Launch App button on mobile */}
+            <button
+            disabled
+            className="bg-transparent hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"
+          >
+            Launch App
+          </button>
+
+            {/* Hamburger Menu Button */}
+            <button onClick={toggleMenu} aria-label="Toggle menu" className="md:hidden">
               <svg
-                className="w-8 h-8 text-black"
+                className="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -94,25 +102,19 @@ const Header = () => {
               </svg>
             </button>
           </div>
-          <button
-            disabled
-            className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"
-          >
-            Launch App
-          </button>
         </div>
 
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="fixed inset-0 bg-gray-900 bg-opacity-50 z-40"
+              className="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 backdrop-filter backdrop-blur-lg"
               onClick={toggleMenu}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
               <motion.div
-                className="fixed top-0 left-0 w-full h-full shadow-lg bg-transparent z-50 backdrop-filter backdrop-blur-lg"
+                className="fixed top-0 left-0 w-full h-full shadow-lg bg-transparent z-50 backdrop-filter backdrop-blur-lg background"
                 initial={{ x: '100%' }}
                 animate={{ x: '0%' }}
                 exit={{ x: '100%' }}
@@ -122,7 +124,7 @@ const Header = () => {
                   <button
                     onClick={toggleMenu}
                     aria-label="Close menu"
-                    className="text-black"
+                    className="text-white"
                   >
                     <svg
                       className="w-6 h-6"
@@ -140,25 +142,27 @@ const Header = () => {
                     </svg>
                   </button>
                 </div>
-                <nav className="flex flex-col p-4 space-y-4 min-h-screen">
-                  {['home', 'mission', 'team', 'contactform'].map((section) => (
+                <nav className="flex flex-col p-6 space-y-6 min-h-screen bg-gray-900  backdrop-blur-lg rounded-lg shadow-lg">
+                  {['home', 'mission', 'team', 'contact'].map((section) => (
                     <Link
                       key={section}
                       href={`#${section}`}
                       onClick={(e) => handleScroll(e, section)}
-                      className={`bg-gray-100 text-black text-center p-3 rounded-lg font-bold transition duration-200 
-                                  ${activeLink === section ? 'bg-white text-black' : ''}`}
+                      className={`bg-white text-black text-center p-4 rounded-lg font-bold transition duration-200 
+                  shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 
+                  ${activeLink === section ? 'bg-white text-black shadow-lg' : ''}`}
                     >
                       {section.charAt(0).toUpperCase() + section.slice(1)}
                     </Link>
                   ))}
                   <button
-                    className="w-full bg-blue-700 text-white font-bold py-2 rounded-3xl transition duration-200 opacity-70 cursor-not-allowed"
-                    disabled
-                  >
-                    Launch App
-                  </button>
+            disabled
+            className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"
+          >
+            Launch App
+          </button>
                 </nav>
+
               </motion.div>
             </motion.div>
           )}
