@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #efefef;
+  --background: #000000;
   --foreground: #171717;
   --text-violet: #8c52ff;
 }
@@ -20,7 +20,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Open Sans', sans-serif;
-  overflow-y: scroll; /* Allows vertical scrolling */
+  overflow-y: scroll;
   scroll-snap-type: y mandatory; /* Enable scroll snapping on the y-axis */
   margin: 0;
   padding: 0;
@@ -43,7 +43,7 @@ body {
 }
 
 html, body {
-  overflow-y: scroll; /* Allows vertical scrolling */
+  overflow-y: scroll;
   margin: 0;
   padding: 0;
   background: #080115;
@@ -281,4 +281,11 @@ input:focus, textarea:focus {
 .letter {
   display: inline-block;
 }
+
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0;
+}
+
 

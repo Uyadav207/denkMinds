@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PentaMorphs",
+  title: "denkMinds",
   description: "Evolving Your Ideas with Innovation and Technology",
 };
 
