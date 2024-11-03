@@ -2,7 +2,7 @@ export const teamMembers = [
   {
     name: 'Utkarsh Yadav',
     role: 'Developer',
-    image: '/TeamImages/utkarsh_yadav.jpg',
+    image: '/TeamImages/utkarsh_yadav.jpeg',
     linkedinUrl: 'https://www.linkedin.com/in/yadavutkarsh',
     githubUrl: 'https://github.com/Uyadav207',
     portfolioUrl: 'https://utkarshyadav.vercel.app/',
@@ -10,7 +10,7 @@ export const teamMembers = [
   {
     name: 'Shweta Kadam',
     role: 'Developer',
-    image: '/TeamImages/shweta_kadam.jpg',
+    image: '/TeamImages/shweta_kadam.jpeg',
     linkedinUrl: 'https://www.linkedin.com/in/shweta-kadam-726875193/',
     githubUrl: 'https://github.com/kadamshweta11',
     portfolioUrl: '',
@@ -26,7 +26,7 @@ export const teamMembers = [
   {
     name: 'Chaitali Tamboliya',
     role: 'Developer',
-    image: '/TeamImages/chaitali_tamboliya.jpg',
+    image: '/TeamImages/chaitali_tamboliya.jpeg',
     linkedinUrl: 'https://www.linkedin.com/in/chaitali-tamboliya/',
     githubUrl: 'https://github.com/chaitali-1805/',
     portfolioUrl: '',
@@ -34,7 +34,7 @@ export const teamMembers = [
   {
     name: 'Nithin Valiyaveedu',
     role: 'Developer',
-    image: '/TeamImages/nithin_valiyaveedu.jpg',
+    image: '/TeamImages/nithin_valiyaveedu.jpeg',
     linkedinUrl: 'https://www.linkedin.com/in/nithin-valiyaveedu/',
     githubUrl: 'https://github.com/Nithin-Valiyaveedu',
     portfolioUrl: 'https://3d-portfolio-steel-sigma.vercel.app/',
@@ -42,7 +42,7 @@ export const teamMembers = [
   {
     name: 'Maria George',
     role: 'Developer',
-    image: '/TeamImages/mariya_george.jpg',
+    image: '/TeamImages/mariya_george.jpeg',
     linkedinUrl: 'http://www.linkedin.com/in/mariya-george-926193224',
     githubUrl: 'https://github.com/mariolu79',
     portfolioUrl: '',
