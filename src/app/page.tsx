@@ -1,29 +1,29 @@
-"use client"
+'use client'
 
-import React, { useEffect, useState } from 'react';
-import Home from './components/Home';
-import Team from './components/Team';
-import ContactForm from './components/ContactForm';
-import Mission from './components/Mission';
-import Header from './components/Header';
-import Loader from './components/Loader/Loader';
+import React, { useEffect, useState } from 'react'
+import Home from './components/Home'
+import Team from './components/Team'
+import ContactForm from './components/ContactForm'
+import Mission from './components/Mission'
+import Header from './components/Header'
+import Loader from './components/Loader/Loader'
 
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config } from '@fortawesome/fontawesome-svg-core';
-config.autoAddCss = false;
-import './utils/fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
+import './utils/fontawesome'
 
 const Dashboard: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     // Simulate a loading delay or wait for some data fetching logic
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // 2 seconds for demonstration; adjust as needed
+      setLoading(false)
+    }, 2000) // 2 seconds for demonstration; adjust as needed
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <>
@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard
