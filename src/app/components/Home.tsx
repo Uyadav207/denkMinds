@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 
       <main className="relative z-10 flex flex-col md:flex-row items-center justify-center w-full h-full max-w-6xl">
   <img 
-    src="/logo.PNG" 
+    src="/logo.png" 
     alt="Logo" 
     className="w-96 h-auto" 
   />
