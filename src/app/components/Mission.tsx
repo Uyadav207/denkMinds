@@ -31,7 +31,7 @@ const Mission = () => {
                 challenges and making a tangible impact. Our products are
                 meticulously designed with a focus on quality and reliability,
                 ensuring they meet the highest standards for both performance
-                and durabilit .&rdquo;
+                and durability.&rdquo;
               </blockquote>
             </div>
           </div>
