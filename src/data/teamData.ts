@@ -1,7 +1,7 @@
 export const teamMembers = [
   {
     name: 'Utkarsh Yadav',
-    role: 'Developer',
+    role: 'Project Manager/Co-Founder',
     image: '/TeamImages/utkarsh-yadav.jpeg',
     linkedinUrl: 'https://www.linkedin.com/in/yadavutkarsh',
     githubUrl: 'https://github.com/Uyadav207',
@@ -9,7 +9,7 @@ export const teamMembers = [
   },
   {
     name: 'Shweta Kadam',
-    role: 'Developer',
+    role: 'QA-Automation/Co-Founder',
     image: '/TeamImages/shweta-kadam.jpg',
     linkedinUrl: 'https://www.linkedin.com/in/shweta-kadam-726875193/',
     githubUrl: 'https://github.com/kadamshweta11',
@@ -17,7 +17,7 @@ export const teamMembers = [
   },
   {
     name: 'Sindhura Shivaprasad',
-    role: 'Developer',
+    role: 'AI Engineer/Co-Founder',
     image: '/TeamImages/sindhura-shivaprasad.jpeg',
     linkedinUrl: 'https://www.linkedin.com/in/sindhura-s-9a55731b4/',
     githubUrl: 'https://github.com/Sindhura492',
@@ -25,7 +25,7 @@ export const teamMembers = [
   },
   {
     name: 'Chaitali Tamboliya',
-    role: 'Developer',
+    role: 'Data Science and digital Marketing/Co-Founder',
     image: '/TeamImages/chaitali-tamboliya.jpg',
     linkedinUrl: 'https://www.linkedin.com/in/chaitali-tamboliya/',
     githubUrl: 'https://github.com/chaitali-1805/',
@@ -33,7 +33,7 @@ export const teamMembers = [
   },
   {
     name: 'Nithin Valiyaveedu',
-    role: 'Developer',
+    role: 'CTO/Co-Founder',
     image: '/TeamImages/nithin-valiyaveedu.jpg',
     linkedinUrl: 'https://www.linkedin.com/in/nithin-valiyaveedu/',
     githubUrl: 'https://github.com/Nithin-Valiyaveedu',
