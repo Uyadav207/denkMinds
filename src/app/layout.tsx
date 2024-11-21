@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const geistSans = localFont({
@@ -16,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PentaMorphs",
+  title: "denkMinds",
   description: "Evolving Your Ideas with Innovation and Technology",
 };
 
