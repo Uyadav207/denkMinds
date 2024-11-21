@@ -61,20 +61,22 @@ const Header = () => {
 
           <div className="hidden md:flex items-center space-x-6">
             <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black text-lg">
-              {['home', 'mission', 'team', 'contact'].map((section) => (
-                <a
-                  key={section}
-                  href={`#${section}`}
-                  onClick={(e) => handleScroll(e, section)}
-                  className={`transition ${
-                    activeLink === section
-                      ? 'text-black bg-white rounded-full px-2'
-                      : 'text-white'
-                  }`}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </a>
-              ))}
+              {['home', 'mission', 'team', 'blogs', 'contact'].map(
+                (section) => (
+                  <a
+                    key={section}
+                    href={`#${section}`}
+                    onClick={(e) => handleScroll(e, section)}
+                    className={`transition ${
+                      activeLink === section
+                        ? 'text-black bg-white rounded-full px-2'
+                        : 'text-white'
+                    }`}
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </a>
+                ),
+              )}
             </nav>
           </div>
 
