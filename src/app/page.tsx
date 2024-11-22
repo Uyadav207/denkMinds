@@ -31,7 +31,6 @@ const Dashboard: React.FC = () => {
         <Loader /> // Display loader until loading is set to false
       ) : (
         <>
-          <Header />
           <Home />
           <Mission />
           <Team />

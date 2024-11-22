@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
@@ -10,9 +11,9 @@ const Footer = () => {
           <p className="text-white font-bold text-2xl">denkMinds</p>
         </div>
         <div className="flex flex-col items-start md:flex-row gap-5 pr-4">
-          <button disabled className="underline-onhover text-gray-500 hover:text-white cursor-not-allowed inline-flex">
-            <span className="hover-color-text underline-white">Privacy Policy</span>
-          </button>
+          <Link href="./imprint" className="underline-onhover text-gray-500 hover:text-white inline-flex">
+            <span className="hover-color-text underline-white">Imprint</span>
+          </Link>
           <button className="underline-onhover text-gray-500 hover:text-white cursor-not-allowed inline-flex">
             <span className="hover-color-text underline-white">Terms & Conditions</span>
           </button>

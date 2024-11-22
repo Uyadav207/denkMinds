@@ -3,11 +3,14 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import { usePathname } from 'next/navigation'  // Use this hook instead of useRouter
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState('home')
+
+  const pathname = usePathname()  // Get the current path using usePathname
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +20,6 @@ const Header = () => {
 
     const handleResize = () => {
       if (window.innerWidth > 768) {
-        console.log('hello')
         setIsMenuOpen(false)
       }
     }
@@ -57,26 +59,31 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto flex justify-between items-center p-4">
-          <p className="text-white font-bold text-2xl">denkMinds</p>
+          <Link href='/'>
+            <p className="text-white font-bold text-2xl">denkMinds</p>
+          </Link>
 
-          <div className="hidden md:flex items-center space-x-6">
-            <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black text-lg">
-              {['home', 'mission', 'team', 'contact'].map((section) => (
-                <a
-                  key={section}
-                  href={`#${section}`}
-                  onClick={(e) => handleScroll(e, section)}
-                  className={`transition ${
-                    activeLink === section
-                      ? 'text-black bg-white rounded-full px-2'
-                      : 'text-white'
-                  }`}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </a>
-              ))}
-            </nav>
-          </div>
+          {/* Only render this div if we're on the home page */}
+          {pathname === '/' && (
+            <div className="hidden md:flex items-center space-x-6">
+              <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black text-lg">
+                {['home', 'mission', 'team', 'contact'].map((section) => (
+                  <a
+                    key={section}
+                    href={`#${section}`}
+                    onClick={(e) => handleScroll(e, section)}
+                    className={`transition ${
+                      activeLink === section
+                        ? 'text-black bg-white rounded-full px-2'
+                        : 'text-white'
+                    }`}
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          )}
 
           <div className="flex items-center space-x-4">
             {/* Hide the Launch App button on mobile */}
