@@ -37,8 +37,8 @@ export default function Dashboard() {
           <Home />
           <Mission />
           <Team />
-          <ContactForm />
           <Blogs />
+          <ContactForm />
         </>
       )}
     </>
