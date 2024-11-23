@@ -63,11 +63,10 @@ const Header = () => {
             <p className="text-white font-bold text-2xl">denkMinds</p>
           </Link>
 
-          {/* Only render this div if we're on the home page */}
-          {pathname === '/' && (
-            <div className="hidden md:flex items-center space-x-6">
-              <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black text-lg">
-                {['home', 'mission', 'team', 'contact'].map((section) => (
+          <div className="hidden md:flex items-center space-x-6">
+            <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black text-lg">
+              {['home', 'mission', 'team', 'blogs', 'contact'].map(
+                (section) => (
                   <a
                     key={section}
                     href={`#${section}`}
@@ -80,10 +79,10 @@ const Header = () => {
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
                   </a>
-                ))}
-              </nav>
-            </div>
-          )}
+                ),
+              )}
+            </nav>
+          </div>
 
           <div className="flex items-center space-x-4">
             {/* Hide the Launch App button on mobile */}

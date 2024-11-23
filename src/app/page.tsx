@@ -12,12 +12,14 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
 import './utils/fontawesome'
+import Blogs from './components/Blogs'
 
-const Dashboard: React.FC = () => {
+export default function Dashboard() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     // Simulate a loading delay or wait for some data fetching logic
+
     const timer = setTimeout(() => {
       setLoading(false)
     }, 2000) // 2 seconds for demonstration; adjust as needed
@@ -34,11 +36,10 @@ const Dashboard: React.FC = () => {
           <Home />
           <Mission />
           <Team />
+          <Blogs />
           <ContactForm />
         </>
       )}
     </>
   )
 }
-
-export default Dashboard
