@@ -1,24 +1,8 @@
-"use client"
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
-import { getBlogPosts } from "@/lib/serverUtils";
 
-export default function Blogs() {
-  const [posts, setPosts] = useState<any[]>([]);
+export default function Blogs({posts}: any) {
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await getBlogPosts();
-        setPosts(response || []);
-      } catch (err) {
-        console.error("Error fetching blog posts:", err);
-      }
-    };
-
-    fetchPosts();
-  }, []);
 
   return (
     <section id="blogs" className="flex min-h-screen py-8 bg-black">
