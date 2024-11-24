@@ -3,11 +3,15 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState('home')
+
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +21,6 @@ const Header = () => {
 
     const handleResize = () => {
       if (window.innerWidth > 768) {
-        console.log('hello')
         setIsMenuOpen(false)
       }
     }
@@ -57,28 +60,32 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto flex justify-between items-center p-4">
-          <p className="text-white font-bold text-2xl">denkMinds</p>
+          <Link href='/'>
+            <p className="text-white font-bold text-2xl">denkMinds</p>
+          </Link>
 
-          <div className="hidden md:flex items-center space-x-6">
-            <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black text-lg">
-              {['home', 'mission', 'team', 'blogs', 'contact'].map(
-                (section) => (
-                  <a
-                    key={section}
-                    href={`#${section}`}
-                    onClick={(e) => handleScroll(e, section)}
-                    className={`transition ${
-                      activeLink === section
-                        ? 'text-black bg-white rounded-full px-2'
-                        : 'text-white'
-                    }`}
-                  >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                  </a>
-                ),
-              )}
-            </nav>
-          </div>
+          {isHomePage && (
+            <div className="hidden md:flex items-center space-x-6">
+              <nav className="flex space-x-7 bg-white bg-opacity-20 backdrop-blur shadow-lg p-2 rounded-3xl border-black text-lg">
+                {['home', 'mission', 'team', 'blogs', 'contact'].map(
+                  (section) => (
+                    <a
+                      key={section}
+                      href={`#${section}`}
+                      onClick={(e) => handleScroll(e, section)}
+                      className={`transition ${
+                        activeLink === section
+                          ? 'text-black bg-white rounded-full px-2'
+                          : 'text-white'
+                      }`}
+                    >
+                      {section.charAt(0).toUpperCase() + section.slice(1)}
+                    </a>
+                  ),
+                )}
+              </nav>
+            </div>
+          )}
 
           <div className="flex items-center space-x-4">
             {/* Hide the Launch App button on mobile */}
@@ -152,18 +159,29 @@ const Header = () => {
                   </button>
                 </div>
                 <nav className="flex flex-col p-6 space-y-6 min-h-screen bg-gray-900  backdrop-blur-lg rounded-lg shadow-lg">
-                  {['home', 'mission', 'team', 'contact'].map((section) => (
-                    <Link
-                      key={section}
-                      href={`#${section}`}
-                      onClick={(e) => handleScroll(e, section)}
-                      className={`bg-white text-black text-center p-4 rounded-lg font-bold transition duration-200 
-                  shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 
-                  ${activeLink === section ? 'bg-white text-black shadow-lg' : ''}`}
-                    >
-                      {section.charAt(0).toUpperCase() + section.slice(1)}
-                    </Link>
-                  ))}
+                  {isHomePage
+                    ? ['home', 'mission', 'team', 'blogs', 'contact'].map((section) => (
+                        <Link
+                          key={section}
+                          href={`#${section}`}
+                          onClick={(e) => handleScroll(e, section)}
+                          className={`bg-white text-black text-center p-4 rounded-lg font-bold transition duration-200 
+                      shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 
+                      ${activeLink === section ? 'bg-white text-black shadow-lg' : ''}`}
+                        >
+                          {section.charAt(0).toUpperCase() + section.slice(1)}
+                        </Link>
+                      ))
+                    : (
+                      <Link
+                        href="/"
+                        className="bg-white text-black text-center p-4 rounded-lg font-bold transition duration-200 
+                        shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                      >
+                        Home
+                      </Link>
+                    )
+                  }
                   <button
                     disabled
                     className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"

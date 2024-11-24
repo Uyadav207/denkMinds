@@ -13,8 +13,7 @@ const Mission = () => (
           <span className="bg-clip-text text-transparent animate-gradient bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500">
             PentaMorphs{' '}
           </span>
-          is to craft AI-powered solutions for modern world to prioritize
-          quality, reliability, and user satisfaction. We are dedicated to:
+          is to craft AI-powered solutions for modern world to prioritize quality, reliability, and user satisfaction. We are dedicated to:
         </p>
 
         <ul className="mt-8 text-lg space-y-3">
