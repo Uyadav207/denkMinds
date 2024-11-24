@@ -11,7 +11,7 @@ const Footer = () => {
           <p className="text-white font-bold text-2xl">denkMinds</p>
         </div>
         <div className="flex flex-col items-start md:flex-row gap-5 pr-4">
-          <Link href="./imprint" className="underline-onhover text-gray-500 hover:text-white inline-flex">
+          <Link href="/imprint" className="underline-onhover text-gray-500 hover:text-white inline-flex">
             <span className="hover-color-text underline-white">Imprint</span>
           </Link>
           <button className="underline-onhover text-gray-500 hover:text-white cursor-not-allowed inline-flex">
