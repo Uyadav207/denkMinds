@@ -10,7 +10,8 @@ function isBlogHeaderData(data: any): data is BlogMetadata {
     typeof data.description === 'string' &&
     typeof data.isPublished === 'boolean' &&
     typeof data.slug === 'string' &&
-    typeof data.publishDate === 'string' // or Date if you use Date
+    typeof data.publishDate === 'string' &&
+    typeof data.imageUrl ==='string' 
   )
 }
 
