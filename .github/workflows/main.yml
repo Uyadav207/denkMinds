@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - '*'
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure Git
+        run: |
+          git config --global user.name "uty-at-tu-chemnitz.de"
+          git config --global user.email "utkarsh.yadav@s2023.tu-chemnitz.de"
+      - name: Push to GitLab Development Branch
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          git remote add gitlab "https://oauth2:${GITLAB_TOKEN}@gitlab.hrz.tu-chemnitz.de/vsr/edu/planspiel/ws2425/group12-denkminds.git"
+          git push gitlab HEAD:denkMinds-website --force
