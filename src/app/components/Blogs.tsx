@@ -1,9 +1,8 @@
+
 import React from "react";
 import Link from "next/link";
 
 export default function Blogs({posts}: any) {
-
-
   return (
     <section id="blogs" className="flex min-h-screen py-8 bg-black">
       <div className="w-full">
@@ -11,8 +10,8 @@ export default function Blogs({posts}: any) {
           Read Our Blogs
         </h2>
 
-        <div className="relative w-full overflow-x-scroll scrollbar-hide">
-          <div className="flex space-x-4 md:space-x-8 px-4 md:px-8">
+        <div className="relative w-full overflow-x-auto scroll-smooth scrollbar-hide ">
+          <div className="flex space-x-4 md:space-x-8 px-4 md:px-8 snap-x snap-mandatory">
             {posts.map(
               (post: {
                 slug: string;
@@ -24,7 +23,7 @@ export default function Blogs({posts}: any) {
                 <Link
                   key={post.slug}
                   href={`/blogs/${post.slug}`}
-                  className="min-w-[280px] md:min-w-[320px] bg-[#080116] p-3 border border-white-600 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                  className="flex-shrink-0 w-86 sm:w-96 bg-[#080116] border border-gray-700 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 cursor-pointer snap-center"
                 >
                   <img
                     className="object-cover w-full h-48 sm:h-64 rounded-t-lg"

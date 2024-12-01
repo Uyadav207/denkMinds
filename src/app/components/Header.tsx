@@ -34,6 +34,33 @@ const Header = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const observerOptions = {
+      rootMargin: '0px 0px -25% 0px', 
+      threshold: 0.3, 
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id) 
+        }
+      })
+    }, observerOptions)
+
+    const sections = ['home', 'mission', 'team', 'blogs', 'contact']
+    sections.forEach((sectionId) => {
+      const sectionElement = document.getElementById(sectionId)
+      if (sectionElement) {
+        observer.observe(sectionElement)
+      }
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -43,13 +70,23 @@ const Header = () => {
     targetId: string,
   ) => {
     event.preventDefault()
-    const targetElement = document.getElementById(targetId)
 
+    const targetElement = document.getElementById(targetId)
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setActiveLink(targetId)
-      if (isMenuOpen) toggleMenu()
+      const headerHeight = 70
+      const targetPosition = targetElement.offsetTop - headerHeight
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth',
+      })
+
+      setTimeout(() => {
+        setActiveLink(targetId)
+      }, 500) 
     }
+
+    if (isMenuOpen) toggleMenu()
   }
 
   return (
@@ -88,7 +125,6 @@ const Header = () => {
           )}
 
           <div className="flex items-center space-x-4">
-            {/* Hide the Launch App button on mobile */}
             <button
               disabled
               className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 cursor-not-allowed"
@@ -96,7 +132,6 @@ const Header = () => {
               Launch App
             </button>
 
-            {/* Hamburger Menu Button */}
             <button
               onClick={toggleMenu}
               aria-label="Toggle menu"
