@@ -1,0 +1,101 @@
+export const metadata = {
+  title: 'A Sneak Peek at Whats Inside',
+  description:'Week 5 at denkminds',
+  isPublished: true,
+  slug: 'week-5',
+  publishDate: '6th Dec, 2024',
+  imageUrl: '/week5.webp', 
+  photoUrl_01: '/week51.jpg',
+  photoUrl_02: '/week52.jpg',
+  photoUrl_03: '/week53.jpg',
+  photoUrl_04: '/week54.jpg',
+  photoUrl_05: '/week55.jpg',
+  photoUrl_06: '/week56.jpg',
+  photoUrl_07: '/week57.jpg',
+  photoUrl_08: '/week58.jpg',
+  photoUrl_09: '/week59.jpg',
+  photoUrl_10: '/week50.jpg'
+}
+
+<br />
+
+
+# Achievement : ✨ Sync GitHub Commits to GitLab Without a Subscription 
+
+A Step-by-Step Guide : Recently, we successfully created a GitHub Action that allows seamless synchronization of every commit from a GitHub repository to GitLab. This workflow eliminates the need for a GitLab subscription to use CI/CD features or automate the synchronization process. Here's a detailed guide on how we achieved it.
+
+---
+
+## Step 1: 🗂️ Prepare GitHub and GitLab Repositories
+
+
+<img src={metadata.photoUrl_01} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+<img src={metadata.photoUrl_02} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+---
+
+## Step 2: 🔑 Generate a GitLab Personal Access Token (PAT)
+
+1. Navigate to your GitLab account.
+2. Go to Settings > Access Tokens.
+3. Create a new token with the required scopes:
+   - `api`
+   - `write_repository`
+4. Save/copy the generated token securely.
+
+<img src={metadata.photoUrl_03} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+<img src={metadata.photoUrl_04} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+---
+
+## Step 3: 🔒 Store the PAT in GitHub Secrets
+
+1. In your GitHub repository, navigate to Settings > Secrets and variables > Actions.
+2. Click New repository secret.
+3. Add a secret with:
+   - Name: `GITLAB_TOKEN`
+   - Value: The GitLab PAT generated/saved earlier.
+
+<img src={metadata.photoUrl_05} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+<img src={metadata.photoUrl_06} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+<img src={metadata.photoUrl_07} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+---
+
+## Step 4: ⚙️ Configure the GitHub Actions Workflow
+
+1. Create a `.github/workflows/sync-to-gitlab.yml` file in your GitHub repository.
+2. Add the following workflow code:
+
+<img src={metadata.photoUrl_08} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+3. Replace `<your-gitlab-username>` and `<your-gitlab-repo-name>` with your GitLab details.
+
+---
+
+## Step 5: 🧪 Test the Workflow
+
+1. Push a commit to the `main` branch in your GitHub repository.
+2. Verify that the changes are automatically reflected in your GitLab repository.
+
+<img src={metadata.photoUrl_09} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+
+
+Reflected from github to gitlab
+
+<img src={metadata.photoUrl_10} alt="Achievement" style={{ width: '100%', borderRadius: '8px' }} />
+
+
+---
+
+## Conclusion 🔚
+
+By following these steps, you can effortlessly sync commits from GitHub to GitLab without requiring additional subscriptions or manual intervention. This process leverages GitHub Actions and a simple GitLab PAT for authentication, providing an efficient and cost-effective solution.
+
+
+
+
