@@ -5,6 +5,9 @@ import "./Timeline.css";
 const Timeline = () => {
 	return (
 		<>
+		<h2 className="text-4xl md:text-5xl font-bold text-white text-center mt-10 mb-16 drop-shadow-md">
+        Meet Our Team
+      </h2>
 			{/* Main timeline container */}
 			<div
 				id="timeline"
