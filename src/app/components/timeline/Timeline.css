@@ -18,6 +18,7 @@
 	display: grid;
 	place-items: center;
 	width: 200px;
+	height: 200px;
 	position: relative;
 	color: var(--color);
 }
@@ -203,45 +204,364 @@
 	}
 }
 
-@media (max-width: 1050px) {
-	body {
-		height: auto;
-		display: block;
-	}
+@media (max-width: 1200px) {
 	.timeline-container {
-		flex-direction: column;
-		height: auto;
-		width: 100%;
-		padding: 100px 0px;
+		gap: 15px;
 	}
 
 	.timeline-point {
-		height: 134px;
-		flex-shrink: 0;
-		left: calc(-321px / 2);
-		margin: 0px auto;
-		position: relative;
+		width: 180px;
+		height: 180px;
+		font-size: 60px;
 	}
 
-	.timeline-point:nth-child(odd)::before {
-		transform: rotate(0deg);
+	.timeline-point::before {
+		width: 225px;
+		height: 225px;
 	}
 
-	.timeline-point:nth-child(even)::before {
-		transform: rotate(0deg) scaleX(-1);
-	}
-
-	.timeline-point .popup:before {
-		display: none;
-	}
-
-	.timeline-point:nth-child(odd) .popup {
-		bottom: auto;
-		right: -370.1px;
-	}
-
-	.timeline-point:nth-child(even) .popup {
-		top: auto;
-		right: -370.1px;
+	.popup {
+		width: 300px;
 	}
 }
+
+@media (max-width: 1050px) {
+  .timeline-container {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    padding: 50px 0;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .timeline-point {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    margin: 0;
+    position: relative;
+    font-size: 50px;
+  }
+
+  .timeline-point::before {
+    width: 200px;
+    height: 200px;
+  }
+
+  .timeline-point:nth-child(odd)::before,
+  .timeline-point:nth-child(even)::before {
+    transform: rotate(0deg);
+  }
+
+  /* Fix for odd-numbered cards */
+  .popup {
+    width: 280px;
+    max-height: none;
+  }
+
+  .timeline-point:nth-child(odd) .popup {
+    right: calc(100% + 20px);
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  .timeline-point:nth-child(even) .popup {
+    left: calc(100% + 20px);
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .popup::before {
+    width: 20px;
+    height: 6.7px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .timeline-point:nth-child(odd) .popup::before {
+    left: auto;
+    right: -20px;
+  }
+
+  .timeline-point:nth-child(even) .popup::before {
+    left: -20px;
+    right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+	.timeline-container {
+		padding: 30px 0;
+		gap: 60px;
+	}
+
+	.timeline-point {
+		width: 120px;
+		height: 120px;
+		font-size: 40px;
+	}
+
+	.timeline-point::before {
+		width: 160px;
+		height: 160px;
+	}
+
+  .timeline-point:nth-child(odd) .popup,
+  .timeline-point:nth-child(even) .popup {
+    width: 220px;
+  }
+
+  .timeline-point:nth-child(odd) .popup {
+    left: calc(100% + 15px);
+  }
+
+  .timeline-point:nth-child(even) .popup {
+    right: calc(100% + 15px);
+  }
+
+  .popup::before {
+    width: 15px;
+  }
+
+  .timeline-point:nth-child(odd) .popup::before {
+    left: -15px;
+  }
+
+  .timeline-point:nth-child(even) .popup::before {
+    right: -15px;
+  }
+
+	.popup-title {
+		font-size: 18px;
+	}
+
+	.popup-details {
+		font-size: 0.75rem;
+		padding: 15px;
+	}
+}
+
+@media (max-width: 480px) {
+	.timeline-container {
+		padding: 20px 0;
+		gap: 50px;
+	}
+
+	.timeline-point {
+		width: 100px;
+		height: 100px;
+		font-size: 32px;
+	}
+
+	.timeline-point::before {
+		width: 130px;
+		height: 130px;
+	}
+
+  .timeline-point:nth-child(odd) .popup,
+  .timeline-point:nth-child(even) .popup {
+    width: 200px;
+  }
+
+  .timeline-point:nth-child(odd) .popup {
+    left: calc(100% + 10px);
+  }
+
+  .timeline-point:nth-child(even) .popup {
+    right: calc(100% + 10px);
+  }
+
+  .popup::before {
+    width: 10px;
+  }
+
+  .timeline-point:nth-child(odd) .popup::before {
+    left: -10px;
+  }
+
+  .timeline-point:nth-child(even) .popup::before {
+    right: -10px;
+  }
+
+	.popup-title {
+		font-size: 16px;
+	}
+
+	.popup-details {
+		font-size: 0.7rem;
+		padding: 12px;
+	}
+
+	.popup-number {
+		font-size: 1.5rem;
+	}
+}
+
+/* Previous styles remain unchanged until media queries */
+
+@media (max-width: 1050px) {
+	.timeline-container {
+	  flex-direction: column;
+	  height: auto;
+	  width: 100%;
+	  padding: 50px 0;
+	  align-items: center;
+	  gap: 80px;
+	}
+  
+	.timeline-point {
+	  width: 150px;
+	  height: 150px;
+	  flex-shrink: 0;
+	  margin: 0;
+	  position: relative;
+	  font-size: 50px;
+	}
+  
+	.timeline-point::before {
+	  width: 200px;
+	  height: 200px;
+	}
+  
+	.timeline-point:nth-child(odd)::before,
+	.timeline-point:nth-child(even)::before {
+	  transform: rotate(0deg);
+	}
+  
+	/* Updated popup positioning for alternating layout */
+	.popup {
+	  width: 280px;
+	  max-height: none;
+	  top: 50%;
+	  transform: translateY(-50%);
+	}
+  
+	.timeline-point:nth-child(odd) .popup {
+	  right: calc(100% + 20px);
+	  left: auto;
+	  bottom: auto;
+	}
+  
+	.timeline-point:nth-child(even) .popup {
+	  left: calc(100% + 20px);
+	  right: auto;
+	}
+  
+	/* Updated connector lines */
+	.popup::before {
+	  width: 20px;
+	  height: 6.7px;
+	  top: 50%;
+	  transform: translateY(-50%);
+	}
+  
+	.timeline-point:nth-child(odd) .popup::before {
+	  left: auto;
+	  right: -20px;
+	  top: 50%;
+	  transform: translateY(-50%);
+	}
+  
+	.timeline-point:nth-child(even) .popup::before {
+	  left: -20px;
+	  right: auto;
+	  top: 50%;
+	  transform: translateY(-50%);
+	}
+  }
+  
+  @media (max-width: 768px) {
+	.timeline-container {
+	  padding: 30px 0;
+	  gap: 60px;
+	}
+  
+	.timeline-point {
+	  width: 120px;
+	  height: 120px;
+	  font-size: 40px;
+	}
+  
+	.timeline-point::before {
+	  width: 160px;
+	  height: 160px;
+	}
+  
+	.popup {
+	  width: 220px;
+	}
+  
+	.timeline-point:nth-child(odd) .popup {
+	  right: calc(100% + 15px);
+	}
+  
+	.timeline-point:nth-child(even) .popup {
+	  left: calc(100% + 15px);
+	}
+  
+	.popup::before {
+	  width: 15px;
+	}
+  
+	.popup-title {
+	  font-size: 18px;
+	}
+  
+	.popup-details {
+	  font-size: 0.75rem;
+	  padding: 15px;
+	}
+  }
+  
+  @media (max-width: 480px) {
+	.timeline-container {
+	  padding: 20px 0;
+	  gap: 50px;
+	}
+  
+	.timeline-point {
+	  width: 100px;
+	  height: 100px;
+	  font-size: 32px;
+	}
+  
+	.timeline-point::before {
+	  width: 130px;
+	  height: 130px;
+	}
+  
+	.popup {
+	  width: 200px;
+	}
+  
+	.timeline-point:nth-child(odd) .popup {
+	  right: calc(100% + 10px);
+	}
+  
+	.timeline-point:nth-child(even) .popup {
+	  left: calc(100% + 10px);
+	}
+  
+	.popup::before {
+	  width: 10px;
+	}
+  
+	.popup-title {
+	  font-size: 16px;
+	}
+  
+	.popup-details {
+	  font-size: 0.7rem;
+	  padding: 12px;
+	}
+  
+	.popup-number {
+	  font-size: 1.5rem;
+	}
+  }
+  
+  

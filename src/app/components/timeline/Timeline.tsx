@@ -1,88 +1,65 @@
 import React from "react";
-
 import "./Timeline.css";
 
 const Timeline = () => {
-	return (
-		<>
-		<h2 className="text-4xl md:text-5xl font-bold text-white text-center mt-10 mb-16 drop-shadow-md">
+  return (
+    <>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center mt-8 mb-12 sm:mt-10 sm:mb-16 drop-shadow-md">
         Meet Our Team
       </h2>
-			{/* Main timeline container */}
-			<div
-				id="timeline"
-				className=" w-full flex flex-col justify-center items-center min-h-screen"
-			>
-				<div className="timeline-container">
-					{/* Individual timeline point */}
-					<div className="timeline-point">
-						<p>1</p>
-						<div className="popup">
-							<div className="popup-number">1</div>
-							<div className="popup-details">
-								<div className="popup-title">Milestone 1</div>
-								Lorem ipsum dolor sit amet conse adipisicing elit. Dicta vitae
-								voluptates id hic recusandae omnis cupiditate odit quis,
-								assumenda optio?
-							</div>
-						</div>
-					</div>
-					{/* Individual timeline point */}
-					<div className="timeline-point">
-						<p>2</p>
-						<div className="popup">
-							<div className="popup-number">2</div>
-							<div className="popup-details">
-								<div className="popup-title">Milestone 1</div>
-								Lorem ipsum dolor sit amet conse adipisicing elit. Dicta vitae
-								voluptates id hic recusandae omnis cupiditate odit quis,
-								assumenda optio?
-							</div>
-						</div>
-					</div>
-					{/* Individual timeline point */}
-					<div className="timeline-point">
-						<p>3</p>
-						<div className="popup">
-							<div className="popup-number">3</div>
-							<div className="popup-details">
-								<div className="popup-title">Milestone 3</div>
-								Lorem ipsum dolor sit amet conse adipisicing elit. Dicta vitae
-								voluptates id hic recusandae omnis cupiditate odit quis,
-								assumenda optio?
-							</div>
-						</div>
-					</div>
-					{/* Individual timeline point */}
-					<div className="timeline-point">
-						<p>4</p>
-						<div className="popup">
-							<div className="popup-number">4</div>
-							<div className="popup-details">
-								<div className="popup-title">Milestone 4</div>
-								Lorem ipsum dolor sit amet conse adipisicing elit. Dicta vitae
-								voluptates id hic recusandae omnis cupiditate odit quis,
-								assumenda optio?
-							</div>
-						</div>
-					</div>
-					{/* Individual timeline point */}
-					<div className="timeline-point">
-						<p>5</p>
-						<div className="popup">
-							<div className="popup-number">5</div>
-							<div className="popup-details">
-								<div className="popup-title">Milestone 5</div>
-								Lorem ipsum dolor sit amet conse adipisicing elit. Dicta vitae
-								voluptates id hic recusandae omnis cupiditate odit quis,
-								assumenda optio?
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+      <div
+        id="timeline"
+        className="w-full flex flex-col justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8"
+      >
+        <div className="timeline-container">
+          {[
+            {
+              number: 1,
+              title: "Form Team & Ideation",
+              details:
+                "We began by assembling a dynamic team & defining the vision for our AI-based Smart Security Assessment, ensuring clear roadmap.",
+            },
+            {
+              number: 2,
+              title: "User Stories & Prototyping",
+              details:
+                "We transitioned into crafting detailed user stories and prototypes, outlining the tool's core functionalities.",
+            },
+            {
+              number: 3,
+              title: "Development and Integration",
+              details:
+                "Focused development of the front-end, back-end, and AI integration marked a significant step toward realizing our tool.",
+            },
+            {
+              number: 4,
+              title: "Security and Compliance",
+              details:
+                "Strengthening security measures and adhering to compliance frameworks ensured reliability and trust.",
+            },
+            {
+              number: 5,
+              title: "Launch Our AI Cyber Security Tool",
+              details:
+                "With rigorous testing and feedback, we're gearing up to launch our MVP, redefining cybersecurity with AI innovation.",
+            },
+          ].map((point) => (
+            <div key={point.number} className="timeline-point">
+              <p>{point.number}</p>
+              <div className="popup">
+                <div className="popup-number">{point.number}</div>
+                <div className="popup-details">
+                  <div className="popup-title">{point.title}</div>
+                  {point.details}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Timeline;
+
