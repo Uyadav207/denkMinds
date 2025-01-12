@@ -9,7 +9,7 @@ const Team = () => (
   >
     <div className="w-full">
       <h2 className="text-4xl md:text-5xl font-bold text-white text-center mt-10 mb-16 drop-shadow-md">
-        Meet Our Team
+        Behind the Bot: Our Team
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
         {teamMembers.map((member, index) => (

@@ -1,11 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons'
+import BackButton from '../components/BackButton'
 
 export default function Privacy() {
   return (
     <section id="contact" className="w-full bg-background-home opacity-80 text-center" >
       <div className="text-white pt-20 transition-opacity duration-300 p-10">
+        <div className="w-full md:w-3/4 xl:w-1/2 mx-auto text-left mb-6">
+          <BackButton/>
+        </div>
         <h2 className="text-5xl font-bold text-white mb-4">
           Imprint
         </h2>
