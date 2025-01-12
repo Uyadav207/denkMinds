@@ -5,7 +5,7 @@ const Timeline = () => {
   return (
 			<section
 				id="milestone"
-				className="justify-center items-center min-h-screen"
+				className="justify-center items-center min-h-screen py-8"
 			>
 				<h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center mt-8 mb-12 sm:mt-10 sm:mb-16 drop-shadow-md">
 					The Milestones That Shaped Us
