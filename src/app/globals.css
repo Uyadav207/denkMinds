@@ -219,12 +219,12 @@ input:focus, textarea:focus {
 
 .underline-onhover .underline-purple::after {
   background: #8b5cf6;
-  color: #8b5cf6 
+  color: #8b5cf6;
 }
 
 .underline-onhover .underline-white::after {
   background: #fff;
-  color: #fff
+  color: #fff;
 }
 
 .underline-onhover .hover-color-text::after {

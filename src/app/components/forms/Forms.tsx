@@ -54,8 +54,6 @@ const Forms: React.FC = () => {
       if (!response.ok) {
         throw new Error("Failed to send email")
       }
-
-      console.log("Email sent successfully")
       setIsSuccess(true)
       setSuccessMessage('Your message has been submitted successfully!');
       setIsModalOpen(true)

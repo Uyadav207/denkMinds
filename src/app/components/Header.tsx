@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import type React from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -41,27 +42,20 @@ const Header = () => {
 		};
 
 		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
+			for (const entry of entries) {
 				if (entry.isIntersecting) {
 					setActiveLink(entry.target.id);
 				}
-			});
+			}
 		}, observerOptions);
 
-		const sections = [
-			"home",
-			"mission",
-			"milestone",
-			"team",
-			"blogs",
-			"contact",
-		];
-		sections.forEach((sectionId) => {
+		const sections = ["home", "mission", "milestone", "team", "blogs", "contact"];
+		for (const sectionId of sections) {
 			const sectionElement = document.getElementById(sectionId);
 			if (sectionElement) {
 				observer.observe(sectionElement);
 			}
-		});
+		}
 
 		return () => {
 			observer.disconnect();
@@ -114,8 +108,8 @@ const Header = () => {
 								{[
 									"home",
 									"mission",
-									"team",
 									"milestone",
+									"team",
 									"blogs",
 									"contact",
 								].map((section) => (
@@ -138,6 +132,7 @@ const Header = () => {
 
 					<div className="flex items-center space-x-4">
 						<button
+							type="button"
 							disabled
 							className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 cursor-not-allowed"
 						>
@@ -145,6 +140,7 @@ const Header = () => {
 						</button>
 
 						<button
+							type="button"
 							onClick={toggleMenu}
 							aria-label="Toggle menu"
 							className="md:hidden"
@@ -156,6 +152,7 @@ const Header = () => {
 								viewBox="0 0 24 24"
 								xmlns="http://www.w3.org/2000/svg"
 							>
+								<title>Menu Icon</title>
 								<path
 									strokeLinecap="round"
 									strokeLinejoin="round"
@@ -185,6 +182,7 @@ const Header = () => {
 							>
 								<div className="flex justify-between items-center p-4">
 									<button
+										type="button"
 										onClick={toggleMenu}
 										aria-label="Close menu"
 										className="text-white"
@@ -196,6 +194,7 @@ const Header = () => {
 											viewBox="0 0 24 24"
 											xmlns="http://www.w3.org/2000/svg"
 										>
+										<title>Close</title>
 											<path
 												strokeLinecap="round"
 												strokeLinejoin="round"
@@ -207,20 +206,25 @@ const Header = () => {
 								</div>
 								<nav className="flex flex-col p-6 space-y-6 min-h-screen bg-gray-900  backdrop-blur-lg rounded-lg shadow-lg">
 									{isHomePage ? (
-										["home", "mission", "team", "blogs", "contact"].map(
-											(section) => (
-												<Link
-													key={section}
-													href={`#${section}`}
-													onClick={(e) => handleScroll(e, section)}
-													className={`bg-white text-black text-center p-4 rounded-lg font-bold transition duration-200 
+										[
+											"home",
+											"mission",
+											"milestone",
+											"team",
+											"blogs",
+											"contact",
+										].map((section) => (
+											<Link
+												key={section}
+												href={`#${section}`}
+												onClick={(e) => handleScroll(e, section)}
+												className={`bg-white text-black text-center p-4 rounded-lg font-bold transition duration-200 
                       shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 
                       ${activeLink === section ? "bg-white text-black shadow-lg" : ""}`}
-												>
-													{section.charAt(0).toUpperCase() + section.slice(1)}
-												</Link>
-											),
-										)
+											>
+												{section.charAt(0).toUpperCase() + section.slice(1)}
+											</Link>
+										))
 									) : (
 										<Link
 											href="/"
@@ -231,6 +235,7 @@ const Header = () => {
 										</Link>
 									)}
 									<button
+										type="button"
 										disabled
 										className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"
 									>

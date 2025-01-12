@@ -31,7 +31,6 @@ export async function getBlogPosts(): Promise<BlogMetadata[]> {
 
   const blogs = await Promise.all(
     postDirs.map(async (postDir) => {
-      console.log(`@/app/blogs/${postDir}/page.tsx`)
       const { metadata } = await import(`@/app/blogs/${postDir}/page.mdx`)
 
       if (isBlogHeaderData(metadata)) {
