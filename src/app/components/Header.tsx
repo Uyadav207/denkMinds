@@ -133,8 +133,8 @@ const Header = () => {
 					<div className="flex items-center space-x-4">
 						<button
 							type="button"
-							disabled
-							className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 cursor-not-allowed"
+							onClick={() => window.open("https://mira-denkminds.vercel.app/login", "_blank")}
+							className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 cursor-not-allowebg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900"
 						>
 							Launch App
 						</button>
