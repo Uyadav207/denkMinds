@@ -131,13 +131,14 @@ const Header = () => {
 					)}
 
 					<div className="flex items-center space-x-4">
-						<button
-							type="button"
-							disabled
-							className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 cursor-not-allowed"
-						>
-							Launch App
-						</button>
+					<button
+	type="button"
+	onClick={() => {}}
+	disabled
+	className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 border-2 border-violet-900 cursor-not-allowed"
+>
+	Launch App
+</button>
 
 						<button
 							type="button"

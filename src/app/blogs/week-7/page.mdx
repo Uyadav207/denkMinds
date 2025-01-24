@@ -1,0 +1,90 @@
+export const metadata = {
+  title: '🛡️ PART 1 Implementing ZAP Passive Scans in MIRA',
+  description: 'Week 7 at DenkMinds',
+  isPublished: true,
+  slug: 'week-7',
+  publishDate: '20th Dec, 2024',
+  imageUrl: '/week7.webp'
+}
+
+<br />
+
+# Week 7: 🛡️ Implementing ZAP Passive Scans in MIRA
+
+In our continuous efforts to enhance MIRA, our AI-assisted cybersecurity assessment tool, we have integrated **ZAP (Zed Attack Proxy)** for passive scanning. This blog post will cover what ZAP passive scanning is, why it is important, and how we implement it in MIRA.
+
+---
+
+## What is ZAP Passive Scanning?  
+ZAP passive scanning involves monitoring and analyzing **HTTP traffic** between the client and the server without actively interacting with the target application.  
+
+### Key Features:  
+- 🛑 **Non-Intrusive**: Does not modify or generate additional traffic.  
+- 🔍 **Silent Monitoring**: Identifies issues without disrupting normal operations.  
+- 🔒 **Secure Assessment**: Ensures thorough traffic analysis without interfering with the application.  
+
+---
+
+## Why is Passive Scanning Important?  
+
+### Benefits of Passive Scanning:  
+1. 🛡️ **Non-Intrusive**:  
+   - Does not disrupt the normal operations of the target application.  
+2. 🚦 **Early Detection**:  
+   - Identifies potential security issues early in the development cycle.  
+3. ✅ **Compliance**:  
+   - Ensures adherence to security policies without impacting application performance.  
+
+---
+
+## Why We Chose ZAP for Passive Scanning  
+
+ZAP is a popular open-source security tool known for its robustness in both active and passive scanning. Its features align perfectly with our goal of enhancing **MIRA's security assessment capabilities**.  
+
+### Key Advantages:  
+- 🤝 **Ease of Integration**: Seamlessly integrates with MIRA.  
+- 📊 **Comprehensive Reporting**: Generates detailed reports for informed decision-making.  
+- 🌟 **Open Source**: A cost-effective and flexible solution.  
+
+---
+
+## Step-by-Step Process for Passive Scanning  
+
+We’ve designed an efficient workflow to integrate ZAP passive scanning into MIRA:  
+
+### 1. **Input URL in Chatbot** 📝  
+- The user inputs the target URL, compliance standard, and scan type (passive) into the chatbot.  
+
+### 2. **API Request Handling** 🔗  
+- The chatbot sends an API request to the backend with the provided information.  
+
+### 3. **Controller Handling** ⚙️  
+- The **zapController.ts** file processes the request.  
+- It calls the `baselineScanService` function with the target URL and scan type.  
+
+### 4. **Executing Passive Scan** 🐳  
+- The **baselineScanService.ts** file:  
+  - Sets up the Docker command for ZAP passive scanning.  
+  - Executes the scan in a Docker container to monitor HTTP traffic passively.  
+
+### 5. **Processing Results** 📄  
+- The generated **JSON report** is read and processed.  
+- CWE IDs are mapped to CVE IDs, and compliance information is enriched.  
+
+### 6. **Returning Results** 💾  
+- The processed results are sent back to the controller, which then forwards them to the chatbot.  
+
+### 7. **Chatbot Response** 💬  
+- The chatbot displays the scan results to the user in a clear and detailed manner.  
+
+---
+
+## ✨ What’s Next?  
+
+🚀 In **Part 2**, we’ll explore the exciting world of **ZAP active scanning** and how it complements passive scanning for a comprehensive security assessment.  
+
+🔐 Stay tuned to see how we push the boundaries of **cybersecurity innovation** with MIRA!  
+
+---
+
+## ⚙️ Together, let’s innovate, impact, and inspire.

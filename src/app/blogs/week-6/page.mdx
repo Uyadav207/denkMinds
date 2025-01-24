@@ -1,0 +1,77 @@
+export const metadata = {
+  title: '🚀 Revolutionizing Cybersecurity',
+  description: 'Week 6 at denkminds',
+  isPublished: true,
+  slug: 'week-6',
+  publishDate: '13th Dec, 2024',
+  imageUrl: '/week6.webp'
+}
+
+<br />
+
+# Week 6: AI & LLM Integration for Smarter Threat Detection 🔐
+
+We are excited to share our latest progress on MIRA, our AI-assisted cybersecurity assessment tool. Our focus has been on enhancing MIRA with a Large Language Model (LLM) integration. Here’s a detailed update on our recent work.
+
+---
+
+## Backend Setup ⚙️
+
+To set up our backend API, we utilized **Hono**, a lightweight and edge-ready web framework. Known for its efficiency and simplicity, Hono is the perfect fit for our needs. We paired it with **Bun**, a high-performance JavaScript runtime, known for its unparalleled speed. This combination has provided us with a responsive and high-performance environment for our application.
+
+### Key Benefits:
+- **Hono**: Offers a straightforward and efficient way to create web applications and APIs.
+- **Bun**: Ensures faster execution times and improved performance for JavaScript applications.
+
+---
+
+## Connecting to OpenAI 🌐
+
+The core of our integration involved setting up the **OpenAI** service. We used **TypeScript** to define interfaces for interacting with the **ChatCompletion endpoint**. These interfaces allowed us to structure requests and responses with precise type definitions, ensuring compatibility with the OpenAI API.
+
+### Request Structure:
+- **ChatCompletionRequest Interface**: Defined the interface to include parameters such as model, messages, and max_tokens.
+  - Ensures requests are correctly formatted.
+  - Contains all the necessary information for the OpenAI API.
+
+### Response Handling:
+- **ChatCompletionResponse Interface**: Created the interface to handle the responses from OpenAI.
+  - Defines expected data, such as choices and message content.
+  - Makes it easy to parse and utilize the responses.
+
+---
+
+## End-to-End Flow 🔄
+
+To provide a seamless user experience, we designed an **end-to-end flow** for handling user input and generating AI-assisted responses.
+
+### Steps:
+- **API Endpoint**:
+  - Created an endpoint in our Hono app to accept user input and forward it to OpenAI’s ChatCompletion endpoint for processing.
+- **Processing User Input**:
+  - Structured the user input into a messages array, maintaining conversation context.
+- **OpenAI API Call**:
+  - Used Bun’s native fetch to make the API call, passing the structured request to OpenAI.
+- **Response Formatting**:
+  - Parsed and formatted the response to ensure easy consumption before sending it back to the client.
+
+---
+
+## TypeScript for Safety and Clarity 🛡️
+
+Using **TypeScript** has provided us with strong safety guarantees and improved clarity in our development process. By defining custom types for both requests and responses, we minimized runtime errors and enhanced maintainability.
+
+### Advantages:
+- **Type Definitions**: Ensures our code is type-safe and less prone to errors.
+- **Improved Maintainability**: Clearly defined types make our codebase easier to understand and maintain.
+- **Reduced Runtime Errors**: TypeScript’s static type checking helps catch errors during development, leading to more reliable code.
+
+---
+
+## ✨ What’s Next?
+
+In the next blog, we’ll dive into how exactly the **scanning process** works and the **tools** we are using for that. Stay tuned for more updates on how we’re bringing our vision to life!
+
+---
+
+## ⚙️ Together, let’s innovate, impact, and inspire.

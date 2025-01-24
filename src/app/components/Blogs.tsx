@@ -7,7 +7,7 @@ export default function Blogs({posts}: any) {
 			<section id="blogs" className="flex min-h-screen py-8 bg-black">
 				<div className="w-full">
 					<h2 className="text-4xl md:text-5xl font-bold text-white text-center mt-10 mb-16 drop-shadow-md">
-						From Our Minds to Yours
+						From Our Minds to Yours.
 					</h2>
 
 					<div className="relative w-full overflow-x-auto scroll-smooth scrollbar-hide ">
