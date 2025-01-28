@@ -11,6 +11,7 @@ config.autoAddCss = false;
 import Blogs from "./components/Blogs";
 import { getBlogPosts } from "@/lib/serverUtils";
 import Timeline from "./components/timeline/Timeline";
+import Services from "./components/Services";
 
 export default async function Dashboard() {
 	const posts = await getBlogPosts();
@@ -30,6 +31,7 @@ export default async function Dashboard() {
 			<Header />
 			<Home />
 			<Mission />
+			<Services />
 			<Timeline />
 			<Team />
 			<Blogs posts={posts} />
