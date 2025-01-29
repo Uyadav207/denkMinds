@@ -9,11 +9,10 @@ import {
 	faRobot,
 	faFileLines,
 	faBolt,
-	faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 // Prevent Font Awesome from adding its CSS since we did it manually above
 config.autoAddCss = false;

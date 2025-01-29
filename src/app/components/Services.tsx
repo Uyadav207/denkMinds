@@ -7,7 +7,7 @@ import {
 	faMagnifyingGlass,
 	faChartLine,
 	faBell,
-    faFileLines,
+	faFileLines,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
@@ -50,19 +50,11 @@ const services = [
 	},
 ];
 
-
 export default function Services() {
 	return (
 		<section className="py-20 px-4 bg-background-home" id="services">
 			<div className="max-w-7xl mx-auto">
 				<div className="text-center mb-16">
-					{/* <motion.span
-						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
-						className="px-4 py-2 rounded-full bg-[#7156db]/10 text-[#7156db] text-sm font-medium"
-					>
-						Services
-					</motion.span> */}
 					<motion.h2
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
@@ -80,20 +72,22 @@ export default function Services() {
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ delay: index * 0.1 }}
-							className="group relative p-8 bg-white/5 backdrop-blur-lg rounded-2xl hover:bg-[#7156db]/5 transition-all duration-300 flex flex-col items-center text-center"
+							className="group relative p-8 bg-[rgba(113,86,219,0.1)] backdrop-blur-lg rounded-2xl hover:bg-[rgba(113,86,219,0.3)] transition-all duration-300 flex flex-col items-center text-center border border-[rgba(255,255,255,0.18)]"
+							style={{
+								boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+							}}
 						>
-							<div className="mb-6 inline-block p-4 rounded-full bg-[#7156db]/10 text-[#7156db] group-hover:bg-[#7156db]/20 transition-colors duration-300">
+							<div className="mb-6 inline-block p-4 rounded-full bg-[rgba(113,86,219,0.2)] text-white group-hover:bg-[rgba(113,86,219,0.4)] transition-colors duration-300">
 								<FontAwesomeIcon icon={service.icon} className="w-6 h-6" />
 							</div>
 							<h3 className="text-xl font-bold text-white mb-4">
 								{service.title}
 							</h3>
-							<p className="text-gray-400 mb-6">{service.description}</p>
-							<a
-								href="/"
-								className="inline-flex items-center text-[#7156db] hover:text-[#8d76e6] transition-colors"
-							>
-								Try App
+							<p className="text-gray-300 mb-6">{service.description}</p>
+							<a href="/" className="underline-onhover inline-flex items-center text-[#7156db] hover:text-white" >
+								<span className="hover-color-text underline-white">
+									Try App
+								</span>
 								<svg
 									className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
 									fill="none"
@@ -116,4 +110,3 @@ export default function Services() {
 		</section>
 	);
 }
-
