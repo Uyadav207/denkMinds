@@ -49,7 +49,15 @@ const Header = () => {
 			}
 		}, observerOptions);
 
-		const sections = ["home", "mission", "milestone", "team", "blogs", "contact"];
+		const sections = [
+			"home",
+			"mission",
+			"services",
+			"milestone",
+			"team",
+			"blogs",
+			"contact",
+		];
 		for (const sectionId of sections) {
 			const sectionElement = document.getElementById(sectionId);
 			if (sectionElement) {
@@ -108,6 +116,7 @@ const Header = () => {
 								{[
 									"home",
 									"mission",
+									"services",
 									"milestone",
 									"team",
 									"blogs",
@@ -195,7 +204,7 @@ const Header = () => {
 											viewBox="0 0 24 24"
 											xmlns="http://www.w3.org/2000/svg"
 										>
-										<title>Close</title>
+											<title>Close</title>
 											<path
 												strokeLinecap="round"
 												strokeLinejoin="round"
@@ -210,6 +219,7 @@ const Header = () => {
 										[
 											"home",
 											"mission",
+											"services",
 											"milestone",
 											"team",
 											"blogs",

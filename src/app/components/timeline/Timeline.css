@@ -3,24 +3,27 @@
 	display: flex;
 	gap: 25px;
 	width: 100%;
-	height: 200px;
 	justify-content: center;
 	font-weight: 900;
 	font-size: 67px;
+	padding: 50px 0;
+	flex-wrap: wrap;
 }
 
 /* Individual timeline point styling */
 .timeline-point {
 	transition-duration: 0.5s;
 	border-radius: 50%;
-	background: linear-gradient(145deg, #1e2125, #23282c);
-	box-shadow: 13.4px 13.4px 40.2px #1c1f23, -13.4px -13.4px 40.2px #262b2f;
+	background: rgba(113, 86, 219, 0.1);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 	display: grid;
 	place-items: center;
 	width: 200px;
 	height: 200px;
 	position: relative;
-	color: var(--color);
+	color: white;
+	border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .timeline-point::before {
@@ -50,29 +53,9 @@
 }
 
 /* Common styling for timeline points */
-.timeline-point:nth-child(1) {
-	--color: #ffffff;
+.timeline-point:nth-child(n) {
+	--color: rgba(113, 86, 219, 0.8);
 	--delay: 0s;
-}
-
-.timeline-point:nth-child(2) {
-	--color: #d667af;
-	--delay: 1s;
-}
-
-.timeline-point:nth-child(3) {
-	--color: #7c5ed6;
-	--delay: 2s;
-}
-
-.timeline-point:nth-child(4) {
-	--color: #ca4747;
-	--delay: 3s;
-}
-
-.timeline-point:nth-child(5) {
-	--color: #4d86e2;
-	--delay: 4s;
 }
 
 /* Popup styling */
@@ -80,15 +63,18 @@
 	width: 321.6px;
 	height: auto;
 	max-height: 0;
-	background-color: var(--color);
+	background-color: rgba(113, 86, 219, 0.1);
+	backdrop-filter: blur(10px);
 	display: grid;
 	grid-template-columns: 16% 84%;
 	position: absolute;
 	color: white;
 	border-radius: 30px;
-	box-shadow: 6.7px 6.7px 21.4px #17191d, -6.7px -6.7px 21.4px #212529;
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 	transform-origin: bottom bottom;
 	animation: expandPopup 0.5s linear calc(var(--delay) + 0.5s) forwards;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	z-index: 10;
 }
 
 .timeline-point:nth-child(odd) .popup {
@@ -114,7 +100,7 @@
 
 /* Popup title styling */
 .popup-title {
-	color: var(--color);
+	color: white;
 	padding-bottom: 6.7px;
 	font-size: 20.1px;
 	font-weight: 900;
@@ -123,7 +109,7 @@
 /* Popup details styling */
 .popup-details {
 	padding: 20.1px;
-	background-color: #1c1f23;
+	background-color: rgba(15, 10, 37, 0.3);
 	border-radius: 30px;
 	opacity: 0;
 	font-weight: 500;
@@ -132,7 +118,6 @@
 	overflow: hidden;
 	font-size: 0.8rem;
 	text-align: justify;
-	background-color: linear-gradient(145deg, #16181b, #22262b);
 	margin: 3.35px;
 	animation: fadeIn 0.5s linear calc(var(--delay) + 0.7s) forwards;
 }
@@ -158,7 +143,7 @@
 
 /* Hover effect for timeline points */
 .timeline-point:hover {
-	background: linear-gradient(145deg, var(--color), #1e2125);
+	background: rgba(113, 86, 219, 0.3);
 	color: white;
 }
 
@@ -167,7 +152,6 @@
 	from {
 		--angle: 0deg;
 	}
-
 	to {
 		--angle: 180deg;
 	}
@@ -178,7 +162,6 @@
 	0% {
 		max-height: 0;
 	}
-
 	100% {
 		max-height: 200px;
 	}
@@ -190,7 +173,6 @@
 		height: 0%;
 		opacity: 0;
 	}
-
 	100% {
 		height: 33.5px;
 		opacity: 1;
@@ -204,6 +186,18 @@
 	}
 }
 
+@keyframes mobilePopupFade {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+}
+
+/* Media queries for responsiveness */
 @media (max-width: 1200px) {
 	.timeline-container {
 		gap: 15px;
@@ -226,83 +220,71 @@
 }
 
 @media (max-width: 1050px) {
-  .timeline-container {
-    flex-direction: column;
-    height: auto;
-    width: 100%;
-    padding: 50px 0;
-    align-items: center;
-    gap: 80px;
-  }
+	.timeline-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 200px; /* Increased gap between timeline points */
+		padding: 20px 0;
+		margin-bottom: 100px; /* Add margin at the bottom */
+	}
 
-  .timeline-point {
-    width: 150px;
-    height: 150px;
-    flex-shrink: 0;
-    margin: 0;
-    position: relative;
-    font-size: 50px;
-  }
+	.timeline-point {
+		width: 150px;
+		height: 150px;
+		font-size: 50px;
+		margin-bottom: 180px; /* Increased margin to prevent overlap */
+	}
 
-  .timeline-point::before {
-    width: 200px;
-    height: 200px;
-  }
+	.popup {
+		width: 280px;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 170px;
+		opacity: 1;
+		max-height: none;
+		height: auto;
+		z-index: 1; /* Ensure popup stays above next circle */
+	}
 
-  .timeline-point:nth-child(odd)::before,
-  .timeline-point:nth-child(even)::before {
-    transform: rotate(0deg);
-  }
+	.timeline-point:nth-child(odd) .popup,
+	.timeline-point:nth-child(even) .popup {
+		top: 170px;
+		bottom: auto;
+	}
 
-  /* Fix for odd-numbered cards */
-  .popup {
-    width: 280px;
-    max-height: none;
-  }
+	.popup::before {
+		height: 41.9px;
+		width: 6.7px;
+		left: 50%;
+		top: -41.9px;
+		transform: translateX(-50%);
+	}
 
-  .timeline-point:nth-child(odd) .popup {
-    right: calc(100% + 20px);
-    left: auto;
-    top: 50%;
-    bottom: auto;
-    transform: translateY(-50%);
-  }
+	.timeline-point:nth-child(odd) .popup::before {
+		top: -41.9px;
+		transform: translateX(-50%);
+	}
 
-  .timeline-point:nth-child(even) .popup {
-    left: calc(100% + 20px);
-    right: auto;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .popup::before {
-    width: 20px;
-    height: 6.7px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .timeline-point:nth-child(odd) .popup::before {
-    left: auto;
-    right: -20px;
-  }
-
-  .timeline-point:nth-child(even) .popup::before {
-    left: -20px;
-    right: auto;
-  }
+	/* Remove animations that might interfere with visibility */
+	.popup,
+	.popup-number,
+	.popup-details {
+		animation: none;
+		opacity: 1;
+	}
 }
 
 @media (max-width: 768px) {
 	.timeline-container {
-		padding: 30px 0;
-		gap: 60px;
+		gap: 220px; /* Further increased gap */
 	}
 
 	.timeline-point {
 		width: 120px;
 		height: 120px;
 		font-size: 40px;
+		margin-bottom: 200px; /* Increased margin */
 	}
 
 	.timeline-point::before {
@@ -310,30 +292,10 @@
 		height: 160px;
 	}
 
-  .timeline-point:nth-child(odd) .popup,
-  .timeline-point:nth-child(even) .popup {
-    width: 220px;
-  }
-
-  .timeline-point:nth-child(odd) .popup {
-    left: calc(100% + 15px);
-  }
-
-  .timeline-point:nth-child(even) .popup {
-    right: calc(100% + 15px);
-  }
-
-  .popup::before {
-    width: 15px;
-  }
-
-  .timeline-point:nth-child(odd) .popup::before {
-    left: -15px;
-  }
-
-  .timeline-point:nth-child(even) .popup::before {
-    right: -15px;
-  }
+	.popup {
+		width: 260px;
+		top: 140px; /* Adjust based on the new timeline point size */
+	}
 
 	.popup-title {
 		font-size: 18px;
@@ -342,19 +304,20 @@
 	.popup-details {
 		font-size: 0.75rem;
 		padding: 15px;
+		line-height: 1.4;
 	}
 }
 
 @media (max-width: 480px) {
 	.timeline-container {
-		padding: 20px 0;
-		gap: 50px;
+		gap: 50px; /* Maximum gap for smallest screens */
 	}
 
 	.timeline-point {
 		width: 100px;
 		height: 100px;
 		font-size: 32px;
+		margin-bottom: 220px; /* Increased margin for smallest screens */
 	}
 
 	.timeline-point::before {
@@ -362,206 +325,33 @@
 		height: 130px;
 	}
 
-  .timeline-point:nth-child(odd) .popup,
-  .timeline-point:nth-child(even) .popup {
-    width: 200px;
-  }
-
-  .timeline-point:nth-child(odd) .popup {
-    left: calc(100% + 10px);
-  }
-
-  .timeline-point:nth-child(even) .popup {
-    right: calc(100% + 10px);
-  }
-
-  .popup::before {
-    width: 10px;
-  }
-
-  .timeline-point:nth-child(odd) .popup::before {
-    left: -10px;
-  }
-
-  .timeline-point:nth-child(even) .popup::before {
-    right: -10px;
-  }
+	.popup {
+		width: 240px;
+		top: 120px; /* Adjust based on the new timeline point size */
+	}
 
 	.popup-title {
 		font-size: 16px;
 	}
 
 	.popup-details {
-		font-size: 0.7rem;
+		font-size: 0.75rem;
 		padding: 12px;
+		line-height: 1.4;
 	}
 
 	.popup-number {
 		font-size: 1.5rem;
 	}
+
+	section#milestone {
+		padding: 40px 16px;
+		overflow: hidden; /* Prevent any horizontal scrolling */
+	}
+
+	/* Add more spacing at the bottom of the container */
+	#timeline {
+		padding-bottom: 100px;
+	}
 }
 
-/* Previous styles remain unchanged until media queries */
-
-@media (max-width: 1050px) {
-	.timeline-container {
-	  flex-direction: column;
-	  height: auto;
-	  width: 100%;
-	  padding: 50px 0;
-	  align-items: center;
-	  gap: 80px;
-	}
-  
-	.timeline-point {
-	  width: 150px;
-	  height: 150px;
-	  flex-shrink: 0;
-	  margin: 0;
-	  position: relative;
-	  font-size: 50px;
-	}
-  
-	.timeline-point::before {
-	  width: 200px;
-	  height: 200px;
-	}
-  
-	.timeline-point:nth-child(odd)::before,
-	.timeline-point:nth-child(even)::before {
-	  transform: rotate(0deg);
-	}
-  
-	/* Updated popup positioning for alternating layout */
-	.popup {
-	  width: 280px;
-	  max-height: none;
-	  top: 50%;
-	  transform: translateY(-50%);
-	}
-  
-	.timeline-point:nth-child(odd) .popup {
-	  right: calc(100% + 20px);
-	  left: auto;
-	  bottom: auto;
-	}
-  
-	.timeline-point:nth-child(even) .popup {
-	  left: calc(100% + 20px);
-	  right: auto;
-	}
-  
-	/* Updated connector lines */
-	.popup::before {
-	  width: 20px;
-	  height: 6.7px;
-	  top: 50%;
-	  transform: translateY(-50%);
-	}
-  
-	.timeline-point:nth-child(odd) .popup::before {
-	  left: auto;
-	  right: -20px;
-	  top: 50%;
-	  transform: translateY(-50%);
-	}
-  
-	.timeline-point:nth-child(even) .popup::before {
-	  left: -20px;
-	  right: auto;
-	  top: 50%;
-	  transform: translateY(-50%);
-	}
-  }
-  
-  @media (max-width: 768px) {
-	.timeline-container {
-	  padding: 30px 0;
-	  gap: 60px;
-	}
-  
-	.timeline-point {
-	  width: 120px;
-	  height: 120px;
-	  font-size: 40px;
-	}
-  
-	.timeline-point::before {
-	  width: 160px;
-	  height: 160px;
-	}
-  
-	.popup {
-	  width: 220px;
-	}
-  
-	.timeline-point:nth-child(odd) .popup {
-	  right: calc(100% + 15px);
-	}
-  
-	.timeline-point:nth-child(even) .popup {
-	  left: calc(100% + 15px);
-	}
-  
-	.popup::before {
-	  width: 15px;
-	}
-  
-	.popup-title {
-	  font-size: 18px;
-	}
-  
-	.popup-details {
-	  font-size: 0.75rem;
-	  padding: 15px;
-	}
-  }
-  
-  @media (max-width: 480px) {
-	.timeline-container {
-	  padding: 20px 0;
-	  gap: 50px;
-	}
-  
-	.timeline-point {
-	  width: 100px;
-	  height: 100px;
-	  font-size: 32px;
-	}
-  
-	.timeline-point::before {
-	  width: 130px;
-	  height: 130px;
-	}
-  
-	.popup {
-	  width: 200px;
-	}
-  
-	.timeline-point:nth-child(odd) .popup {
-	  right: calc(100% + 10px);
-	}
-  
-	.timeline-point:nth-child(even) .popup {
-	  left: calc(100% + 10px);
-	}
-  
-	.popup::before {
-	  width: 10px;
-	}
-  
-	.popup-title {
-	  font-size: 16px;
-	}
-  
-	.popup-details {
-	  font-size: 0.7rem;
-	  padding: 12px;
-	}
-  
-	.popup-number {
-	  font-size: 1.5rem;
-	}
-  }
-  
-  

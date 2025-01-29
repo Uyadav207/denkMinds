@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Blogs({posts}: any) {
   return (
-			<section id="blogs" className="flex min-h-screen py-8 bg-black">
+			<section id="blogs" className="flex min-h-screen py-8">
 				<div className="w-full">
 					<h2 className="text-4xl md:text-5xl font-bold text-white text-center mt-10 mb-16 drop-shadow-md">
 						From Our Minds to Yours.
