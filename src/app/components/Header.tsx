@@ -141,7 +141,8 @@ const Header = () => {
 
 					<div className="flex items-center space-x-4">
 						<Link
-							href="http://34.29.253.194:3000/"
+							href="http://34.172.202.200:3000/"
+							target="_blank"
 							className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 border-2 border-violet-900"
 						>
 							Launch App
@@ -244,7 +245,8 @@ const Header = () => {
 										</Link>
 									)}
 									<Link
-										href="http://34.29.253.194:3000/"
+										href="http://34.172.202.200:3000/"
+										target="_blank"
 										className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70"
 									>
 										Launch App

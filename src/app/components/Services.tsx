@@ -85,7 +85,8 @@ export default function Services() {
 							</h3>
 							<p className="text-gray-300 mb-6">{service.description}</p>
 							<a
-								href="http://34.29.253.194:3000/"
+								href="http://34.172.202.200:3000/"
+								target="_blank" rel="noreferrer"
 								className="underline-onhover inline-flex items-center text-[#7156db] hover:text-white"
 							>
 								<span className="hover-color-text underline-white">
