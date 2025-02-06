@@ -140,14 +140,12 @@ const Header = () => {
 					)}
 
 					<div className="flex items-center space-x-4">
-					<button
-	type="button"
-	onClick={() => {}}
-	disabled
-	className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 border-2 border-violet-900 cursor-not-allowed"
->
-	Launch App
-</button>
+						<Link
+							href="http://34.29.253.194:3000/"
+							className="bg-[#080115] hidden md:block text-white font-bold py-2 px-4 rounded-3xl transition duration-200 border-2 border-violet-900"
+						>
+							Launch App
+						</Link>
 
 						<button
 							type="button"
@@ -245,13 +243,12 @@ const Header = () => {
 											Home
 										</Link>
 									)}
-									<button
-										type="button"
-										disabled
-										className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70 cursor-not-allowed"
+									<Link
+										href="http://34.29.253.194:3000/"
+										className="bg-transparent text-white font-bold py-2 px-4 rounded-3xl transition duration-200 hover:bg-transparent border-2 border-violet-900 opacity-70"
 									>
 										Launch App
-									</button>
+									</Link>
 								</nav>
 							</motion.div>
 						</motion.div>
